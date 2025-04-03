@@ -1,7 +1,7 @@
 
 ## Evan Gunderson
 ### [LinkedIn](https://www.linkedin.com/in/egunderson2004/)
-### [Download Resume (.docx)](./Fall2024ResumeEvanGunderson.docx)
+### [Download Resume (.docx)](Fall2024ResumeEvanGunderson.docx)
 ### Recent Works
 #### Oral Presentation at ERN ([Emerging Researchers National](https://emerging-researchers.org/))
 "A Structured Query System for Document Mining for Large Databases with LLM Generated Data"
