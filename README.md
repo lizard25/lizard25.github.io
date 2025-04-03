@@ -1,5 +1,5 @@
 
-## Evan Gunderson
+# Evan Gunderson
 ### [LinkedIn](https://www.linkedin.com/in/egunderson2004/)
 ### [Download Resume (.docx)](Fall2024ResumeEvanGunderson.docx)
 ### Recent Works
