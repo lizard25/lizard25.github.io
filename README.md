@@ -1,13 +1,15 @@
 
 ## Evan Gunderson
 ### [LinkedIn](https://www.linkedin.com/in/egunderson2004/)
-### [Download Resume (.docx)](./example.docx)
+### [Download Resume (.docx)](./Fall2024ResumeEvanGunderson.docx)
 ### Recent Works
 #### Oral Presentation at ERN ([Emerging Researchers National](https://emerging-researchers.org/))
 "A Structured Query System for Document Mining for Large Databases with LLM Generated Data"
 Small part of a larger project related to LLMs
 #### CNN for ASL Character Classification
-pass
+I produced and trained a model to recognize sign language characters from the following dataset: [link to dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
+with a ~95% accuracy (missclassified 1 in 20 characters)
+![Model Architecture](MLModelArchitecture.png)
 #### Inverse Kinematics with Obstacle Avoidance
 ![Robot arm animation gif](animation.gif)
 #### Hosted a Lecture and Lab on Creating a CNN for MNIST dataset
