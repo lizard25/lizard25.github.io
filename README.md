@@ -5,7 +5,7 @@
 ### Recent Works
 #### Oral Presentation at ERN ([Emerging Researchers National](https://emerging-researchers.org/))
 "A Structured Query System for Document Mining for Large Databases with LLM Generated Data"
-Small part of a larger project related to LLMs
+Small part of a larger project I work(ed) on related to LLMs
 #### CNN for ASL Character Classification
 I produced and trained a model to recognize sign language characters from the following dataset: [link to dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
 with a ~95% accuracy (missclassified 1 in 20 characters)
@@ -15,7 +15,7 @@ with a ~95% accuracy (missclassified 1 in 20 characters)
 #### Hosted a Lecture and Lab on Creating a CNN for MNIST dataset
 [Link to Slides](https://docs.google.com/presentation/d/1WL52Snc8O_rBL7BM6JoHkGTVpNTea9CC7mN0u-srdzk/edit?usp=sharing)
 #### Pipeline for High Energy Physics Simulation with Custom Lagrangians
-Uses C++, C, Python and other languages to a lesser extent
+Uses C++, C, Python and other languages
 [HEP Lab website](https://research.fit.edu/hep/)
 
 ### Completed and IP Courses
