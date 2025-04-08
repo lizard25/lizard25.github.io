@@ -1,7 +1,7 @@
 
 # Evan Gunderson
 ### [LinkedIn](https://www.linkedin.com/in/egunderson2004/)
-### [Download Resume (.docx)](Fall2024ResumeEvanGunderson.docx)
+### [Download Resume (.docx)](Spring2025ResumeEvanGunderson.docx)
 ### Recent Works
 #### Othello Reinforcement Learning Model with Self-Play
 ![image of GUI](OthelloGui.png)
