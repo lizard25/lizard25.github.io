@@ -4,11 +4,12 @@
 ### [Download Resume (.docx)](Spring2025ResumeEvanGunderson.docx)
 ### Recent Works
 #### Othello Reinforcement Learning Model with Self-Play
+Gained experience with using GPUs to train deep learning models, used CUDA, cuDNN, tensorflow and other libraries
 ![image of GUI](OthelloGui.png)
 ![image of Self-Play Log](SelfPlayLog.png)
 #### Oral Presentation at ERN ([Emerging Researchers National](https://emerging-researchers.org/))
 "A Structured Query System for Document Mining for Large Databases with LLM Generated Data"
-Small part of a larger project I work(ed) on related to LLMs
+Small part of a larger project I work(ed) on related to LLMs as an research assistant in a project funded by NASA
 ![presentationTitleImage](ERNPresentationPic.jpg)
 #### CNN for ASL Character Classification
 I produced and trained a model to recognize sign language characters from the following dataset: [link to dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
