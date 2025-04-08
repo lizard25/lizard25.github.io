@@ -15,7 +15,7 @@ I produced and trained a model to recognize sign language characters from the fo
 with a ~95% accuracy (missclassified 1 in 20 characters)
 ![Model Architecture](MLModelArchitecture.png)
 #### Inverse Kinematics with Obstacle Avoidance
-Implemented a robot arm with inverse kinematics using jacobian approximation that included seeking a target and avoiding obstacles as well as joint limits
+Implemented a robot arm with inverse kinematics using jacobian approximation that included seeking a target and avoiding obstacles as well as joint limits. Modeled in Blender and Vedo
 ![Robot arm animation gif](animation.gif)
 #### Hosted a Lecture and Lab on Creating a CNN for MNIST dataset
 [Link to Slides](https://docs.google.com/presentation/d/1WL52Snc8O_rBL7BM6JoHkGTVpNTea9CC7mN0u-srdzk/edit?usp=sharing)
