@@ -51,7 +51,7 @@ MTH:
 2201 differential equations & linear algebra
 3102 intro to linear algebra
 3210 intro to partial differential equations and apps
-4234 statistical modeling
+5/4234 statistical modeling
 
 PHY:
 
