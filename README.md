@@ -11,9 +11,14 @@ Gained experience with using GPUs to train deep learning models, used CUDA, cuDN
 "A Structured Query System for Document Mining for Large Databases with LLM Generated Data"
 Small part of a larger project I work(ed) on related to LLMs as an research assistant in a project funded by NASA under Dianeliz Ortiz Martes and Dr. Nezammodin N. Kachouie
 ![presentationTitleImage](ERNPresentationPic.jpg)
-#### CNN for ASL Character Classification
+#### CNN for ASL Character Classification Flutter App
 I produced and trained a model to recognize sign language characters from the following dataset: [link to dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet)
 with a ~95% accuracy (missclassified 1 in 20 characters)
+I also created a Flutter app using Dart with tflite that uses the trained model.
+
+https://github.com/user-attachments/assets/076e33db-dd05-47cb-9cc5-2d7f85ff3883
+
+
 ![Model Architecture](MLModelArchitecture.png)
 #### Inverse Kinematics with Obstacle Avoidance
 Implemented a robot arm with inverse kinematics using jacobian approximation that included seeking a target and avoiding obstacles as well as joint limits. Modeled in Blender and Vedo
