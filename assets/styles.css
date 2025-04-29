@@ -1,0 +1,96 @@
+/* Base styles */
+body.dark {
+    background-color: #121212;
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  header {
+    background-color: #1e1e1e;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+  
+  header p {
+    margin: 0.5rem 0;
+    font-style: italic;
+    color: #bbbbbb;
+  }
+  
+  nav {
+    margin-top: 1rem;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  section {
+    padding: 2rem;
+    border-bottom: 1px solid #2c2c2c;
+  }
+  
+  h2 {
+    color: #90caf9;
+    margin-top: 0;
+  }
+  
+  .project {
+    margin-bottom: 2rem;
+  }
+  
+  .project h3 {
+    color: #ffb74d;
+  }
+  
+  .project img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 0.5rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+  }
+  
+  .columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  
+  .columns > div {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  footer {
+    background-color: #1e1e1e;
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #888;
+  }
+  
+  footer a {
+    color: #4fc3f7;
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
