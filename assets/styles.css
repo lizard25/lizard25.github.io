@@ -77,6 +77,15 @@ body.dark {
     min-width: 250px;
   }
   
+  .columns ul {
+    padding-left: 1.2rem;
+    list-style-type: disc;
+  }
+  
+  .columns li {
+    margin-bottom: 0.5rem;
+  }
+  
   footer {
     background-color: #1e1e1e;
     text-align: center;
@@ -92,5 +101,13 @@ body.dark {
   
   footer a:hover {
     text-decoration: underline;
+  }
+  
+  a {
+    color: #4fc3f7;
+  }
+  
+  a:hover {
+    color: #82d4fa;
   }
   
