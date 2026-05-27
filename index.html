@@ -38,6 +38,11 @@
       <img src="assets/images/image.png" alt="Screenshot of Website" />
     </div>
     <div class="project">
+      <h3>Underwater Submarine Pose Detection</h3>
+      <p>Designed a computer vision pipeline to estimate the pose of a United States Seawolf-class submarine in shallow, overhead-lit underwater-to-underwater conditions. To improve data control and coverage, I built an underwater simulation for training data generation instead of relying only on real imagery.</p>
+      <p>I first used MASt3R for point correspondences with PnP + RANSAC for pose estimation, then diagnosed feature extraction failures caused by underwater distortion, discoloration, caustics, and bubbles. I integrated Segment Anything 2 (Meta) to segment out background artifacts before matching, which restored robust correspondences and enabled accurate final pose estimation.</p>
+    </div>
+    <div class="project">
       <h3>ASL Character Classification App</h3>
       <p>Built a CNN for ASL character recognition (~95% accuracy) and integrated it into a Flutter app using TensorFlow Lite.</p>
       <img src="assets/images/MLModelArchitecture.png" alt="Model Architecture" />
