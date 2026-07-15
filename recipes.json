@@ -1,5 +1,33 @@
 [
   {
+    "id": "1784142357129",
+    "name": "Air fryer garlic herb salmon",
+    "category": "dinner",
+    "time": "10 min",
+    "description": "Ingredients per serving",
+    "ingredients": [
+      "1 filet salmon (6oz)",
+      "2 cloves garlic",
+      "5 large basil leaves",
+      "1 slice lemon (circle slice)",
+      "3 tbsp butter",
+      "Salt",
+      "Pepper"
+    ],
+    "steps": [
+      "Crush garlic cloves then mince",
+      "Finely chop basil",
+      "Microwave butter in small bowl for 5 to 10 seconds",
+      "Combine and mix butter garlic basil",
+      "Salt and pepper all sides of salmon",
+      "Pre heat air fryer to 400",
+      "Add salmon and pour over butter mixture and place lemon on top",
+      "Cook for 6-8 mins",
+      "Squeeze remaining lemon from top of salmon and discard it"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1784138859930",
     "name": "tst",
     "category": "dinner",
