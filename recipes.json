@@ -1,5 +1,34 @@
 [
   {
+    "id": "1784145605574",
+    "name": "Rosemary Butter Steak",
+    "category": "dinner",
+    "time": "20 min",
+    "description": "adaptable for multiple cuts of steak.",
+    "ingredients": [
+      "1 steak of desired cut (6-10oz)",
+      "3 cloves garlic",
+      "1/2 stick butter, melted",
+      "Splash olive oil",
+      "2 twigs rosemary",
+      "Salt",
+      "Pepper",
+      "(optional) 1 tsp sage",
+      "(optional) 1 tsp thyme"
+    ],
+    "steps": [
+      "Take steak out of fridge and add salt and pepper on all sides.",
+      "Crush garlic cloves, mince for more garlic flavor.",
+      "Remove rosemary off of 1 twig, leave other for later.",
+      "Set heat to med/high and add pan at least twice as large as steak for 3 mins. for cast iron heat for 5 to 7 mins.",
+      "Mix herbs (not the second twig of rosemary) and melted butter in a small bowl",
+      "Add olive oil and steak to pan on one side",
+      "Add the butter mixture to the other side of the pan",
+      "RECIPE INCOMPLETE"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1784142357129",
     "name": "Air fryer garlic herb salmon",
     "category": "dinner",
