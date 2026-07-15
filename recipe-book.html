@@ -82,6 +82,7 @@
         <button class="secondary-button" id="favorites-filter" type="button" aria-pressed="false">Show favorites</button>
         <button class="primary-button" id="add-recipe" type="button">+ Add recipe</button>
       </div>
+      <p id="sync-status" aria-live="polite"></p>
       <section class="recipe-grid" id="recipe-grid" aria-live="polite"></section>
     </main>
   </div>
@@ -106,13 +107,40 @@
       { id: "crispy-potatoes", name: "Crispy Smashed Potatoes", category: "sides", time: "45 min", description: "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.", ingredients: ["baby potatoes", "olive oil", "garlic", "rosemary", "sea salt"] },
       { id: "berry-oats", name: "Roasted Berry Oats", category: "breakfast", time: "35 min", description: "A make-ahead breakfast with jammy berries and a toasted oat topping.", ingredients: ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"] }
     ];
+    // Set this after deploying the Worker, for example: https://recipe-api.example.workers.dev
+    const recipeApiUrl = "";
     const storageKey = "evan-recipe-book";
     let recipes = JSON.parse(localStorage.getItem(storageKey) || "null") || starterRecipes;
     let showFavorites = false;
     const grid = document.getElementById("recipe-grid");
     const dialog = document.getElementById("recipe-dialog");
     const form = document.getElementById("recipe-form");
-    function saveRecipes() { localStorage.setItem(storageKey, JSON.stringify(recipes)); }
+    const syncStatus = document.getElementById("sync-status");
+    function saveLocally() { localStorage.setItem(storageKey, JSON.stringify(recipes)); }
+    function setSyncStatus(message, isError = false) { syncStatus.textContent = message; syncStatus.className = isError ? "error" : ""; }
+    async function loadRecipes() {
+      if (!recipeApiUrl) return;
+      try {
+        const response = await fetch(recipeApiUrl);
+        if (!response.ok) throw new Error("load failed");
+        const payload = await response.json();
+        recipes = payload.recipes;
+        saveLocally();
+        setSyncStatus("Synced from cloud");
+        renderRecipes();
+      } catch (error) { setSyncStatus("Cloud sync unavailable; using this device", true); }
+    }
+    async function saveRecipes() {
+      saveLocally();
+      if (!recipeApiUrl) return;
+      const writeKey = prompt("Enter your recipe write key:");
+      if (!writeKey) return;
+      try {
+        const response = await fetch(recipeApiUrl, { method: "PUT", headers: { "Content-Type": "application/json", "X-Recipe-Key": writeKey }, body: JSON.stringify({ recipes }) });
+        if (!response.ok) { const payload = await response.json(); throw new Error(payload.error || "save failed"); }
+        setSyncStatus("Saved to cloud");
+      } catch (error) { setSyncStatus(error.message, true); }
+    }
     function categoryName(category) { return category.charAt(0).toUpperCase() + category.slice(1); }
     function escapeHtml(value) { return value.replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character])); }
     function renderRecipes() {
@@ -163,6 +191,7 @@
       renderRecipes();
     });
     renderRecipes();
+    loadRecipes();
   </script>
 </body>
 </html>

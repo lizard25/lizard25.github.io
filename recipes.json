@@ -1,0 +1,29 @@
+[
+  {
+    "id": "lemon-pasta",
+    "name": "Lemon Ricotta Pasta",
+    "category": "dinner",
+    "time": "25 min",
+    "description": "Bright, creamy pasta for the nights when dinner should be easy.",
+    "ingredients": ["spaghetti", "ricotta", "lemon", "parmesan", "black pepper"],
+    "favorite": true
+  },
+  {
+    "id": "crispy-potatoes",
+    "name": "Crispy Smashed Potatoes",
+    "category": "sides",
+    "time": "45 min",
+    "description": "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.",
+    "ingredients": ["baby potatoes", "olive oil", "garlic", "rosemary", "sea salt"],
+    "favorite": false
+  },
+  {
+    "id": "berry-oats",
+    "name": "Roasted Berry Oats",
+    "category": "breakfast",
+    "time": "35 min",
+    "description": "A make-ahead breakfast with jammy berries and a toasted oat topping.",
+    "ingredients": ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"],
+    "favorite": false
+  }
+]

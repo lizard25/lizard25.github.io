@@ -1,5 +1,19 @@
 
 # Evan Gunderson
+
+## Recipe book cloud sync
+
+The standalone recipe book is at `recipe-book.html`. It works locally by default and can sync publicly readable recipes through a Cloudflare Worker.
+
+1. Install Wrangler and log in: `npm install -g wrangler`, then `wrangler login`.
+2. From the repository root, deploy the Worker: `cd worker && wrangler deploy`.
+3. Create a GitHub fine-grained token with **Contents: Read and write** access to `lizard25/lizard25.github.io`, then store it as a Worker secret:
+	`wrangler secret put GITHUB_TOKEN`
+4. Create a private save key and store it too:
+	`wrangler secret put RECIPE_WRITE_KEY`
+5. Put the deployed Worker URL into `recipe-book.html` as `recipeApiUrl`.
+
+`recipes.json` is public. The GitHub token and write key stay in Cloudflare and are never sent to the browser. The Worker reads recipes with `GET` and commits updates with protected `PUT` requests.
 ### [LinkedIn](https://www.linkedin.com/in/egunderson2004/)
 ### [Download Resume (.docx)](Spring2025ResumeEvanGunderson.docx)
 ### Recent Works

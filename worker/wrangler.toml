@@ -1,0 +1,9 @@
+name = "recipe-book-api"
+main = "recipe-api.js"
+compatibility_date = "2026-07-15"
+
+[vars]
+GITHUB_OWNER = "lizard25"
+GITHUB_REPO = "lizard25.github.io"
+GITHUB_BRANCH = "main"
+RECIPE_PATH = "recipes.json"
