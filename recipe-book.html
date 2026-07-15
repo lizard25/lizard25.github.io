@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A personal recipe book for saving and organizing favorite recipes." />
+  <title>Recipe Book</title>
+  <style>
+    :root {
+      --ink: #2b211b;
+      --muted: #75665b;
+      --paper: #fffaf0;
+      --paper-deep: #f4e8d5;
+      --tomato: #b94f36;
+      --tomato-dark: #8d3928;
+      --sage: #5f7257;
+      --line: #e5d4bd;
+      --shadow: 0 18px 45px rgba(73, 44, 24, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: radial-gradient(circle at 15% 10%, rgba(231, 183, 119, 0.28), transparent 24rem), linear-gradient(135deg, #f7eee1 0%, #efe1cd 52%, #f8f2e8 100%); font-family: Georgia, "Times New Roman", serif; line-height: 1.55; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    .page-shell { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; }
+    header { display: flex; justify-content: space-between; align-items: end; gap: 2rem; padding: 3rem 0 2rem; border-bottom: 1px solid var(--line); }
+    .eyebrow { margin: 0 0 0.45rem; color: var(--tomato); font: 700 0.75rem/1.2 Arial, sans-serif; letter-spacing: 0.14em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 0.35rem; font-size: clamp(2.8rem, 7vw, 5.4rem); line-height: 0.95; font-weight: 400; }
+    .intro { max-width: 34rem; margin-bottom: 0; color: var(--muted); font-size: 1.1rem; }
+    .header-mark { color: var(--tomato); font-size: 5rem; line-height: 1; transform: rotate(-8deg); }
+    main { padding: 2rem 0 4rem; }
+    .toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.85rem; margin-bottom: 1.4rem; }
+    .toolbar input, .toolbar select, .recipe-form input, .recipe-form select, .recipe-form textarea { min-height: 2.8rem; padding: 0.6rem 0.8rem; color: var(--ink); border: 1px solid var(--line); border-radius: 5px; background: rgba(255, 250, 240, 0.78); }
+    #search { flex: 1 1 17rem; }
+    #category-filter { flex: 0 1 12rem; }
+    .primary-button, .secondary-button { border: 0; border-radius: 5px; padding: 0.65rem 1rem; font-weight: 700; }
+    .primary-button { color: #fffaf0; background: var(--tomato); }
+    .primary-button:hover { background: var(--tomato-dark); }
+    .secondary-button { color: var(--tomato-dark); background: #f0dfca; }
+    .recipe-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 1rem; }
+    .recipe-card { display: flex; min-height: 255px; flex-direction: column; padding: 1.2rem; border: 1px solid var(--line); border-radius: 8px; background: var(--paper); box-shadow: var(--shadow); animation: appear 0.35s ease both; }
+    .card-top { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+    .recipe-card h2 { margin-bottom: 0.35rem; font-size: 1.55rem; font-weight: 400; }
+    .recipe-card p { color: var(--muted); }
+    .tag { color: var(--sage); font: 700 0.72rem Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+    .favorite { border: 0; padding: 0; color: #cbb49b; background: transparent; font-size: 1.5rem; line-height: 1; }
+    .favorite.active { color: var(--tomato); }
+    .recipe-meta { display: flex; gap: 1rem; margin-top: auto; padding-top: 1rem; color: var(--muted); font: 0.82rem Arial, sans-serif; }
+    .card-actions { display: flex; gap: 0.65rem; margin-top: 1rem; }
+    .card-actions button { padding: 0; color: var(--tomato-dark); border: 0; background: transparent; font: 700 0.82rem Arial, sans-serif; }
+    .empty-state { grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: var(--muted); }
+    dialog { width: min(620px, calc(100% - 2rem)); padding: 0; color: var(--ink); border: 0; border-radius: 8px; background: var(--paper); box-shadow: 0 25px 80px rgba(43, 33, 27, 0.3); }
+    dialog::backdrop { background: rgba(43, 33, 27, 0.48); }
+    .dialog-inner { padding: 1.5rem; }
+    .dialog-heading { display: flex; justify-content: space-between; gap: 1rem; align-items: start; }
+    .dialog-heading h2 { margin-bottom: 1.2rem; font-size: 2rem; font-weight: 400; }
+    .close-button { border: 0; color: var(--muted); background: transparent; font-size: 1.5rem; }
+    .recipe-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .recipe-form label { display: grid; gap: 0.35rem; color: var(--muted); font: 700 0.78rem Arial, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
+    .recipe-form textarea { min-height: 7rem; resize: vertical; }
+    .form-actions { display: flex; justify-content: end; gap: 0.7rem; margin-top: 0.2rem; }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { header { align-items: start; padding-top: 2rem; } .header-mark { display: none; } .form-row { grid-template-columns: 1fr; } .toolbar > * { flex-basis: 100% !important; } }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header>
+      <div>
+        <p class="eyebrow">A little archive of good things</p>
+        <h1>Recipe Book</h1>
+        <p class="intro">Keep the recipes worth making twice. Add your own, find old favorites, and let the list grow with you.</p>
+      </div>
+      <div class="header-mark" aria-hidden="true">✦</div>
+    </header>
+    <main>
+      <div class="toolbar" aria-label="Recipe controls">
+        <input id="search" type="search" placeholder="Search recipes..." aria-label="Search recipes" />
+        <select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="dinner">Dinner</option><option value="dessert">Dessert</option><option value="sides">Sides</option></select>
+        <button class="secondary-button" id="favorites-filter" type="button" aria-pressed="false">Show favorites</button>
+        <button class="primary-button" id="add-recipe" type="button">+ Add recipe</button>
+      </div>
+      <section class="recipe-grid" id="recipe-grid" aria-live="polite"></section>
+    </main>
+  </div>
+
+  <dialog id="recipe-dialog">
+    <div class="dialog-inner">
+      <div class="dialog-heading"><h2 id="dialog-title">Add a recipe</h2><button class="close-button" id="close-dialog" type="button" aria-label="Close">&times;</button></div>
+      <form class="recipe-form" id="recipe-form">
+        <input id="recipe-id" type="hidden" />
+        <label>Recipe name <input id="recipe-name" required maxlength="70" /></label>
+        <div class="form-row"><label>Category <select id="recipe-category" required><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="dinner">Dinner</option><option value="dessert">Dessert</option><option value="sides">Sides</option></select></label><label>Time <input id="recipe-time" required placeholder="30 min" maxlength="20" /></label></div>
+        <label>Short description <input id="recipe-description" required maxlength="150" /></label>
+        <label>Ingredients <textarea id="recipe-ingredients" required placeholder="One ingredient per line"></textarea></label>
+        <div class="form-actions"><button class="secondary-button" id="cancel-dialog" type="button">Cancel</button><button class="primary-button" type="submit">Save recipe</button></div>
+      </form>
+    </div>
+  </dialog>
+
+  <script>
+    const starterRecipes = [
+      { id: "lemon-pasta", name: "Lemon Ricotta Pasta", category: "dinner", time: "25 min", description: "Bright, creamy pasta for the nights when dinner should be easy.", ingredients: ["spaghetti", "ricotta", "lemon", "parmesan", "black pepper"], favorite: true },
+      { id: "crispy-potatoes", name: "Crispy Smashed Potatoes", category: "sides", time: "45 min", description: "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.", ingredients: ["baby potatoes", "olive oil", "garlic", "rosemary", "sea salt"] },
+      { id: "berry-oats", name: "Roasted Berry Oats", category: "breakfast", time: "35 min", description: "A make-ahead breakfast with jammy berries and a toasted oat topping.", ingredients: ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"] }
+    ];
+    const storageKey = "evan-recipe-book";
+    let recipes = JSON.parse(localStorage.getItem(storageKey) || "null") || starterRecipes;
+    let showFavorites = false;
+    const grid = document.getElementById("recipe-grid");
+    const dialog = document.getElementById("recipe-dialog");
+    const form = document.getElementById("recipe-form");
+    function saveRecipes() { localStorage.setItem(storageKey, JSON.stringify(recipes)); }
+    function categoryName(category) { return category.charAt(0).toUpperCase() + category.slice(1); }
+    function escapeHtml(value) { return value.replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character])); }
+    function renderRecipes() {
+      const term = document.getElementById("search").value.toLowerCase().trim();
+      const category = document.getElementById("category-filter").value;
+      const visible = recipes.filter((recipe) => {
+        const matchesTerm = [recipe.name, recipe.description, recipe.ingredients.join(" ")].join(" ").toLowerCase().includes(term);
+        return matchesTerm && (category === "all" || recipe.category === category) && (!showFavorites || recipe.favorite);
+      });
+      grid.innerHTML = visible.length ? visible.map((recipe, index) => `<article class="recipe-card" style="animation-delay: ${index * 45}ms"><div class="card-top"><div><span class="tag">${categoryName(recipe.category)}</span><h2>${escapeHtml(recipe.name)}</h2></div><button class="favorite ${recipe.favorite ? "active" : ""}" data-action="favorite" data-id="${recipe.id}" aria-label="${recipe.favorite ? "Remove from" : "Add to"} favorites">${recipe.favorite ? "★" : "☆"}</button></div><p>${escapeHtml(recipe.description)}</p><div class="recipe-meta"><span>${escapeHtml(recipe.time)}</span><span>${recipe.ingredients.length} ingredients</span></div><div class="card-actions"><button data-action="edit" data-id="${recipe.id}" type="button">Edit</button><button data-action="delete" data-id="${recipe.id}" type="button">Delete</button></div></article>`).join("") : `<p class="empty-state">No recipes match that search. Try another ingredient or add something new.</p>`;
+    }
+    function openForm(recipe) {
+      form.reset();
+      document.getElementById("dialog-title").textContent = recipe ? "Edit recipe" : "Add a recipe";
+      document.getElementById("recipe-id").value = recipe?.id || "";
+      document.getElementById("recipe-name").value = recipe?.name || "";
+      document.getElementById("recipe-category").value = recipe?.category || "dinner";
+      document.getElementById("recipe-time").value = recipe?.time || "";
+      document.getElementById("recipe-description").value = recipe?.description || "";
+      document.getElementById("recipe-ingredients").value = recipe?.ingredients.join("\n") || "";
+      dialog.showModal();
+      document.getElementById("recipe-name").focus();
+    }
+    document.getElementById("add-recipe").addEventListener("click", () => openForm());
+    document.getElementById("close-dialog").addEventListener("click", () => dialog.close());
+    document.getElementById("cancel-dialog").addEventListener("click", () => dialog.close());
+    document.getElementById("search").addEventListener("input", renderRecipes);
+    document.getElementById("category-filter").addEventListener("change", renderRecipes);
+    document.getElementById("favorites-filter").addEventListener("click", (event) => { showFavorites = !showFavorites; event.currentTarget.setAttribute("aria-pressed", showFavorites); event.currentTarget.textContent = showFavorites ? "Show all recipes" : "Show favorites"; renderRecipes(); });
+    grid.addEventListener("click", (event) => {
+      const button = event.target.closest("button[data-action]");
+      if (!button) return;
+      const recipe = recipes.find((item) => item.id === button.dataset.id);
+      if (button.dataset.action === "favorite") recipe.favorite = !recipe.favorite;
+      if (button.dataset.action === "delete" && confirm(`Delete ${recipe.name}?`)) recipes = recipes.filter((item) => item.id !== recipe.id);
+      if (button.dataset.action === "edit") openForm(recipe);
+      saveRecipes();
+      renderRecipes();
+    });
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const id = document.getElementById("recipe-id").value || `${Date.now()}`;
+      const existing = recipes.find((recipe) => recipe.id === id);
+      const recipe = { id, name: document.getElementById("recipe-name").value.trim(), category: document.getElementById("recipe-category").value, time: document.getElementById("recipe-time").value.trim(), description: document.getElementById("recipe-description").value.trim(), ingredients: document.getElementById("recipe-ingredients").value.split("\n").map((item) => item.trim()).filter(Boolean), favorite: existing?.favorite || false };
+      recipes = existing ? recipes.map((item) => item.id === id ? recipe : item) : [recipe, ...recipes];
+      saveRecipes();
+      dialog.close();
+      renderRecipes();
+    });
+    renderRecipes();
+  </script>
+</body>
+</html>
