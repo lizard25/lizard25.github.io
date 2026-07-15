@@ -108,7 +108,7 @@
       { id: "berry-oats", name: "Roasted Berry Oats", category: "breakfast", time: "35 min", description: "A make-ahead breakfast with jammy berries and a toasted oat topping.", ingredients: ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"] }
     ];
     // Set this after deploying the Worker, for example: https://recipe-api.example.workers.dev
-    const recipeApiUrl = "";
+    const recipeApiUrl = "https://recipe-book-api.2thetophat2.workers.dev";
     const storageKey = "evan-recipe-book";
     let recipes = JSON.parse(localStorage.getItem(storageKey) || "null") || starterRecipes;
     let showFavorites = false;
