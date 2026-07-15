@@ -26,20 +26,5 @@
       "Squeeze remaining lemon from top of salmon and discard it"
     ],
     "favorite": false
-  },
-  {
-    "id": "1784138859930",
-    "name": "tst",
-    "category": "dinner",
-    "time": "32",
-    "description": "tst",
-    "ingredients": [
-      "tst"
-    ],
-    "steps": [
-      "Prepare the ingredients.",
-      "Cook until done and serve."
-    ],
-    "favorite": false
   }
 ]
