@@ -41,26 +41,5 @@
       "Cook until done and serve."
     ],
     "favorite": false
-  },
-  {
-    "id": "berry-oats",
-    "name": "Roasted Berry Oats",
-    "category": "breakfast",
-    "time": "35 min",
-    "description": "A make-ahead breakfast with jammy berries and a toasted oat topping.",
-    "ingredients": [
-      "rolled oats",
-      "mixed berries",
-      "maple syrup",
-      "milk",
-      "cinnamon"
-    ],
-    "steps": [
-      "Heat the oven and add the berries to a small baking dish.",
-      "Stir the oats, milk, maple syrup, and cinnamon together.",
-      "Spoon the oat mixture over the berries.",
-      "Bake until the topping is golden and the berries are bubbling."
-    ],
-    "favorite": false
   }
 ]
