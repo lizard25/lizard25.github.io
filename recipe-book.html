@@ -60,6 +60,10 @@
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .recipe-form label { display: grid; gap: 0.35rem; color: var(--muted); font: 700 0.78rem Arial, sans-serif; letter-spacing: 0.05em; text-transform: uppercase; }
     .recipe-form textarea { min-height: 7rem; resize: vertical; }
+    .recipe-details { display: grid; gap: 1.2rem; }
+    .recipe-details h3 { margin-bottom: 0.35rem; color: var(--tomato-dark); font: 700 0.78rem Arial, sans-serif; letter-spacing: 0.08em; text-transform: uppercase; }
+    .recipe-details ul, .recipe-details ol { margin: 0; padding-left: 1.4rem; }
+    .recipe-details li + li { margin-top: 0.45rem; }
     .form-actions { display: flex; justify-content: end; gap: 0.7rem; margin-top: 0.2rem; }
     @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     @media (max-width: 640px) { header { align-items: start; padding-top: 2rem; } .header-mark { display: none; } .form-row { grid-template-columns: 1fr; } .toolbar > * { flex-basis: 100% !important; } }
@@ -95,16 +99,24 @@
         <div class="form-row"><label>Category <select id="recipe-category" required><option value="breakfast">Breakfast</option><option value="lunch">Lunch</option><option value="dinner">Dinner</option><option value="dessert">Dessert</option><option value="sides">Sides</option></select></label><label>Time <input id="recipe-time" required placeholder="30 min" maxlength="20" /></label></div>
         <label>Short description <input id="recipe-description" required maxlength="150" /></label>
         <label>Ingredients <textarea id="recipe-ingredients" required placeholder="One ingredient per line"></textarea></label>
+        <label>Steps <textarea id="recipe-steps" required placeholder="One step per line"></textarea></label>
         <div class="form-actions"><button class="secondary-button" id="cancel-dialog" type="button">Cancel</button><button class="primary-button" type="submit">Save recipe</button></div>
       </form>
     </div>
   </dialog>
 
+  <dialog id="view-dialog">
+    <div class="dialog-inner">
+      <div class="dialog-heading"><h2 id="view-title">Recipe</h2><button class="close-button" id="close-view-dialog" type="button" aria-label="Close">&times;</button></div>
+      <div class="recipe-details" id="recipe-details"></div>
+    </div>
+  </dialog>
+
   <script>
     const starterRecipes = [
-      { id: "lemon-pasta", name: "Lemon Ricotta Pasta", category: "dinner", time: "25 min", description: "Bright, creamy pasta for the nights when dinner should be easy.", ingredients: ["spaghetti", "ricotta", "lemon", "parmesan", "black pepper"], favorite: true },
-      { id: "crispy-potatoes", name: "Crispy Smashed Potatoes", category: "sides", time: "45 min", description: "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.", ingredients: ["baby potatoes", "olive oil", "garlic", "rosemary", "sea salt"] },
-      { id: "berry-oats", name: "Roasted Berry Oats", category: "breakfast", time: "35 min", description: "A make-ahead breakfast with jammy berries and a toasted oat topping.", ingredients: ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"] }
+      { id: "lemon-pasta", name: "Lemon Ricotta Pasta", category: "dinner", time: "25 min", description: "Bright, creamy pasta for the nights when dinner should be easy.", ingredients: ["spaghetti", "ricotta", "lemon", "parmesan", "black pepper"], steps: ["Cook the spaghetti until just tender, reserving a cup of pasta water.", "Stir together ricotta, lemon zest, parmesan, and pepper.", "Toss the pasta with the ricotta mixture, loosening with pasta water until creamy.", "Finish with lemon juice and extra parmesan."], favorite: true },
+      { id: "crispy-potatoes", name: "Crispy Smashed Potatoes", category: "sides", time: "45 min", description: "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.", ingredients: ["baby potatoes", "olive oil", "garlic", "rosemary", "sea salt"], steps: ["Boil the potatoes until fork-tender, then drain and cool briefly.", "Place them on a baking sheet and gently smash each one.", "Drizzle with oil, then season with garlic, rosemary, and salt.", "Roast until the edges are deeply golden and crisp."] },
+      { id: "berry-oats", name: "Roasted Berry Oats", category: "breakfast", time: "35 min", description: "A make-ahead breakfast with jammy berries and a toasted oat topping.", ingredients: ["rolled oats", "mixed berries", "maple syrup", "milk", "cinnamon"], steps: ["Heat the oven and add the berries to a small baking dish.", "Stir the oats, milk, maple syrup, and cinnamon together.", "Spoon the oat mixture over the berries.", "Bake until the topping is golden and the berries are bubbling."] }
     ];
     // Set this after deploying the Worker, for example: https://recipe-api.example.workers.dev
     const recipeApiUrl = "https://recipe-book-api.2thetophat2.workers.dev";
@@ -113,6 +125,7 @@
     let showFavorites = false;
     const grid = document.getElementById("recipe-grid");
     const dialog = document.getElementById("recipe-dialog");
+    const viewDialog = document.getElementById("view-dialog");
     const form = document.getElementById("recipe-form");
     const syncStatus = document.getElementById("sync-status");
     function saveLocally() { localStorage.setItem(storageKey, JSON.stringify(recipes)); }
@@ -146,10 +159,17 @@
       const term = document.getElementById("search").value.toLowerCase().trim();
       const category = document.getElementById("category-filter").value;
       const visible = recipes.filter((recipe) => {
-        const matchesTerm = [recipe.name, recipe.description, recipe.ingredients.join(" ")].join(" ").toLowerCase().includes(term);
+        const matchesTerm = [recipe.name, recipe.description, recipe.ingredients.join(" "), (recipe.steps || []).join(" ")].join(" ").toLowerCase().includes(term);
         return matchesTerm && (category === "all" || recipe.category === category) && (!showFavorites || recipe.favorite);
       });
-      grid.innerHTML = visible.length ? visible.map((recipe, index) => `<article class="recipe-card" style="animation-delay: ${index * 45}ms"><div class="card-top"><div><span class="tag">${categoryName(recipe.category)}</span><h2>${escapeHtml(recipe.name)}</h2></div><button class="favorite ${recipe.favorite ? "active" : ""}" data-action="favorite" data-id="${recipe.id}" aria-label="${recipe.favorite ? "Remove from" : "Add to"} favorites">${recipe.favorite ? "★" : "☆"}</button></div><p>${escapeHtml(recipe.description)}</p><div class="recipe-meta"><span>${escapeHtml(recipe.time)}</span><span>${recipe.ingredients.length} ingredients</span></div><div class="card-actions"><button data-action="edit" data-id="${recipe.id}" type="button">Edit</button><button data-action="delete" data-id="${recipe.id}" type="button">Delete</button></div></article>`).join("") : `<p class="empty-state">No recipes match that search. Try another ingredient or add something new.</p>`;
+      grid.innerHTML = visible.length ? visible.map((recipe, index) => `<article class="recipe-card" style="animation-delay: ${index * 45}ms"><div class="card-top"><div><span class="tag">${categoryName(recipe.category)}</span><h2>${escapeHtml(recipe.name)}</h2></div><button class="favorite ${recipe.favorite ? "active" : ""}" data-action="favorite" data-id="${recipe.id}" aria-label="${recipe.favorite ? "Remove from" : "Add to"} favorites">${recipe.favorite ? "★" : "☆"}</button></div><p>${escapeHtml(recipe.description)}</p><div class="recipe-meta"><span>${escapeHtml(recipe.time)}</span><span>${recipe.ingredients.length} ingredients</span></div><div class="card-actions"><button data-action="view" data-id="${recipe.id}" type="button">View</button><button data-action="edit" data-id="${recipe.id}" type="button">Edit</button><button data-action="delete" data-id="${recipe.id}" type="button">Delete</button></div></article>`).join("") : `<p class="empty-state">No recipes match that search. Try another ingredient or add something new.</p>`;
+    }
+    function openRecipeView(recipe) {
+      document.getElementById("view-title").textContent = recipe.name;
+      const ingredients = recipe.ingredients || [];
+      const steps = recipe.steps || [];
+      document.getElementById("recipe-details").innerHTML = `<div><h3>Ingredients</h3><ul>${ingredients.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul></div><div><h3>Steps</h3>${steps.length ? `<ol>${steps.map((step) => `<li>${escapeHtml(step)}</li>`).join("")}</ol>` : "<p>No steps have been added yet.</p>"}</div>`;
+      viewDialog.showModal();
     }
     function openForm(recipe) {
       form.reset();
@@ -160,12 +180,14 @@
       document.getElementById("recipe-time").value = recipe?.time || "";
       document.getElementById("recipe-description").value = recipe?.description || "";
       document.getElementById("recipe-ingredients").value = recipe?.ingredients.join("\n") || "";
+      document.getElementById("recipe-steps").value = (recipe?.steps || []).join("\n");
       dialog.showModal();
       document.getElementById("recipe-name").focus();
     }
     document.getElementById("add-recipe").addEventListener("click", () => openForm());
     document.getElementById("close-dialog").addEventListener("click", () => dialog.close());
     document.getElementById("cancel-dialog").addEventListener("click", () => dialog.close());
+    document.getElementById("close-view-dialog").addEventListener("click", () => viewDialog.close());
     document.getElementById("search").addEventListener("input", renderRecipes);
     document.getElementById("category-filter").addEventListener("change", renderRecipes);
     document.getElementById("favorites-filter").addEventListener("click", (event) => { showFavorites = !showFavorites; event.currentTarget.setAttribute("aria-pressed", showFavorites); event.currentTarget.textContent = showFavorites ? "Show all recipes" : "Show favorites"; renderRecipes(); });
@@ -173,6 +195,7 @@
       const button = event.target.closest("button[data-action]");
       if (!button) return;
       const recipe = recipes.find((item) => item.id === button.dataset.id);
+      if (button.dataset.action === "view") { openRecipeView(recipe); return; }
       if (button.dataset.action === "favorite") recipe.favorite = !recipe.favorite;
       if (button.dataset.action === "delete" && confirm(`Delete ${recipe.name}?`)) recipes = recipes.filter((item) => item.id !== recipe.id);
       if (button.dataset.action === "edit") openForm(recipe);
@@ -183,7 +206,7 @@
       event.preventDefault();
       const id = document.getElementById("recipe-id").value || `${Date.now()}`;
       const existing = recipes.find((recipe) => recipe.id === id);
-      const recipe = { id, name: document.getElementById("recipe-name").value.trim(), category: document.getElementById("recipe-category").value, time: document.getElementById("recipe-time").value.trim(), description: document.getElementById("recipe-description").value.trim(), ingredients: document.getElementById("recipe-ingredients").value.split("\n").map((item) => item.trim()).filter(Boolean), favorite: existing?.favorite || false };
+      const recipe = { id, name: document.getElementById("recipe-name").value.trim(), category: document.getElementById("recipe-category").value, time: document.getElementById("recipe-time").value.trim(), description: document.getElementById("recipe-description").value.trim(), ingredients: document.getElementById("recipe-ingredients").value.split("\n").map((item) => item.trim()).filter(Boolean), steps: document.getElementById("recipe-steps").value.split("\n").map((item) => item.trim()).filter(Boolean), favorite: existing?.favorite || false };
       recipes = existing ? recipes.map((item) => item.id === id ? recipe : item) : [recipe, ...recipes];
       saveRecipes();
       dialog.close();

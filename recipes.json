@@ -8,6 +8,10 @@
     "ingredients": [
       "tst"
     ],
+    "steps": [
+      "Prepare the ingredients.",
+      "Cook until done and serve."
+    ],
     "favorite": false
   },
   {
@@ -22,6 +26,12 @@
       "lemon",
       "parmesan",
       "black pepper"
+    ],
+    "steps": [
+      "Cook the spaghetti until just tender, reserving a cup of pasta water.",
+      "Stir together ricotta, lemon zest, parmesan, and pepper.",
+      "Toss the pasta with the ricotta mixture, loosening with pasta water until creamy.",
+      "Finish with lemon juice and extra parmesan."
     ],
     "favorite": true
   },
@@ -38,6 +48,12 @@
       "rosemary",
       "sea salt"
     ],
+    "steps": [
+      "Boil the potatoes until fork-tender, then drain and cool briefly.",
+      "Place them on a baking sheet and gently smash each one.",
+      "Drizzle with oil, then season with garlic, rosemary, and salt.",
+      "Roast until the edges are deeply golden and crisp."
+    ],
     "favorite": false
   },
   {
@@ -52,6 +68,12 @@
       "maple syrup",
       "milk",
       "cinnamon"
+    ],
+    "steps": [
+      "Heat the oven and add the berries to a small baking dish.",
+      "Stir the oats, milk, maple syrup, and cinnamon together.",
+      "Spoon the oat mixture over the berries.",
+      "Bake until the topping is golden and the berries are bubbling."
     ],
     "favorite": false
   }
