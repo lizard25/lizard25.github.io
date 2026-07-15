@@ -43,27 +43,6 @@
     "favorite": false
   },
   {
-    "id": "lemon-pasta",
-    "name": "Lemon Ricotta Pasta",
-    "category": "dinner",
-    "time": "25 min",
-    "description": "Bright, creamy pasta for the nights when dinner should be easy.",
-    "ingredients": [
-      "spaghetti",
-      "ricotta",
-      "lemon",
-      "parmesan",
-      "black pepper"
-    ],
-    "steps": [
-      "Cook the spaghetti until just tender, reserving a cup of pasta water.",
-      "Stir together ricotta, lemon zest, parmesan, and pepper.",
-      "Toss the pasta with the ricotta mixture, loosening with pasta water until creamy.",
-      "Finish with lemon juice and extra parmesan."
-    ],
-    "favorite": true
-  },
-  {
     "id": "crispy-potatoes",
     "name": "Crispy Smashed Potatoes",
     "category": "sides",
