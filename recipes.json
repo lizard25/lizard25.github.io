@@ -43,27 +43,6 @@
     "favorite": false
   },
   {
-    "id": "crispy-potatoes",
-    "name": "Crispy Smashed Potatoes",
-    "category": "sides",
-    "time": "45 min",
-    "description": "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.",
-    "ingredients": [
-      "baby potatoes",
-      "olive oil",
-      "garlic",
-      "rosemary",
-      "sea salt"
-    ],
-    "steps": [
-      "Boil the potatoes until fork-tender, then drain and cool briefly.",
-      "Place them on a baking sheet and gently smash each one.",
-      "Drizzle with oil, then season with garlic, rosemary, and salt.",
-      "Roast until the edges are deeply golden and crisp."
-    ],
-    "favorite": false
-  },
-  {
     "id": "berry-oats",
     "name": "Roasted Berry Oats",
     "category": "breakfast",
