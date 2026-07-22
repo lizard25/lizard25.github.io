@@ -1,34 +1,5 @@
 [
   {
-    "id": "1784215855617",
-    "name": "Risotto Asparagi",
-    "category": "sides",
-    "time": "1hr 20min",
-    "description": "Risotto with asparagus (ingredients per 4 servings)",
-    "ingredients": [
-      "1.5 cup rice",
-      "750g asparagus (or to desired amount)",
-      "~2 oz Parmesan",
-      "1/2 stick butter",
-      "1/4 cup onion",
-      "1 more onion",
-      "olive oil",
-      "1 rib celery",
-      "2 carrots",
-      "8.5 cups water",
-      "salt",
-      "pepper"
-    ],
-    "steps": [
-      "Remove hard root of asparagus",
-      "Cut tips off asparagus",
-      "Cut remaining center into small rounds (~1 inch)",
-      "Roughly chop celery carrots and 1 onion after cleaning/removing undesirable parts",
-      "put all vegetables into"
-    ],
-    "favorite": false
-  },
-  {
     "id": "1784145605574",
     "name": "Rosemary Butter Steak",
     "category": "dinner",
