@@ -1,5 +1,29 @@
 [
   {
+    "id": "1785855266761",
+    "name": "Baked Mostaccioli",
+    "category": "dinner",
+    "time": "40-60 mins",
+    "description": "Chicago land area regional baked pasta. Barnellis style. Time depends on sauce methods",
+    "ingredients": [
+      "Mostaccioli noodles",
+      "Meat sauce (make it or buy it)",
+      "Mozzarella cheese",
+      "Asiago cheese"
+    ],
+    "steps": [
+      "Set oven pre-heat to 350",
+      "Cook pasta using heavily salted water until al dente or slightly less",
+      "Drain water, add olive oil, and mix",
+      "Warm red sauce to a near simmer",
+      "Add pasta to red sauce (should contain garlic and italian sausage) recipe for candidate sauce available",
+      "Toss pasta in warmed sauce",
+      "Add pasta to baking dish and generously cover in shredded mozzarella and grated asiago",
+      "Bake until cheese is melted bubbling and beginning to darken in spots (20-25 mins or as needed)"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1784145605574",
     "name": "Rosemary Butter Steak",
     "category": "dinner",
