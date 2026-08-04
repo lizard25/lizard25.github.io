@@ -1,5 +1,25 @@
 [
   {
+    "id": "1785885658414",
+    "name": "Cheesecake-like Key Lemon Pie",
+    "category": "dessert",
+    "time": "<60 minutes",
+    "description": "Key lemon pie, but with a consistency like a cheesecake",
+    "ingredients": [
+      "Graham Cracker Pie Crust - 10 inch x 1",
+      "Lemons (Zest + Juice) x 5",
+      "Sweetened Condensed Milk - 3 cups (3 small cans)",
+      "Sour Cream - 0.5 cups"
+    ],
+    "steps": [
+      "1. Pre-heat oven to 350 degrees (Fahrenheit).",
+      "2. Mix all ingredients (except pie crust) together in a bowl.",
+      "3. Pour all wet batter into pie crust.",
+      "4. Place pie into oven on the top shelf, cook until top is lightly browned."
+    ],
+    "favorite": false
+  },
+  {
     "id": "1785856262378",
     "name": "Italian Meat sauce",
     "category": "dinner",
