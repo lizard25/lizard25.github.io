@@ -1,5 +1,36 @@
 [
   {
+    "id": "1785856262378",
+    "name": "Italian Meat sauce",
+    "category": "dinner",
+    "time": "40 mins",
+    "description": "Italian sausage meat sauce, this is a 8 servings make less if you want less. you can make the tomato sauce yourself.",
+    "ingredients": [
+      "Olive oil",
+      "1 medium yellow onion",
+      "Salt",
+      "4 cloves garlic",
+      "2 pounds italian sausage or alt meat",
+      "2 teaspoons italian seasoning",
+      "1/4 teaspoon red pepper flakes (if you want)",
+      "28 ounces tomato sauce",
+      "1/6 cup grated parmesan cheese"
+    ],
+    "steps": [
+      "Finely chop onion",
+      "To a pot or large sauce pan add olive oil, yellow onion and a pinch of salt. Stir and cook 8 to 10 minutes slightly below medium to soften",
+      "Mince garlic",
+      "Add garlic and cook for 1 more minute",
+      "Raise heat to medium",
+      "Add italian sausage or alternative ground beef and break up into small bits",
+      "Cook until browned",
+      "Add the italian seasoning and a pinch of red pepper flakes. Stir and cook 1 to 2 minutes.",
+      "Pour in the tomato sauce, add parmesan cheese and season with 1 tsp salt, black pepper and a pinch of sugar. Stir well to incorporate all of the ingredients.",
+      "Cover, reduce the temperature to medium-low and simmer for 15 minutes"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1785855266761",
     "name": "Baked Mostaccioli",
     "category": "dinner",
