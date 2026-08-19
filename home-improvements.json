@@ -6,6 +6,13 @@
     "location": "Throughout House",
     "startDate": "2026-08-31",
     "notes": "we can also get ones that glow when off for dark places like garage for like 5 or 10 bucks each. wall plates like 50c a piece if we need them.",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -33,14 +40,7 @@
           "Ishan": false
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1787153380556",
@@ -56,8 +56,8 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-08-19",
     "items": [
       {
         "id": "item-1787153380556-e698ff0244078",
