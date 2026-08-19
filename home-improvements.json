@@ -1,0 +1,124 @@
+[
+  {
+    "id": "bathroom-remodel-2026",
+    "name": "Bathroom Remodel",
+    "category": "Bathroom",
+    "location": "Guest Bathroom",
+    "startDate": "2026-06-01",
+    "notes": "Full refresh before guests arrive.",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 60,
+        "Ishan": 40
+      }
+    },
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "sink",
+        "name": "New Sink",
+        "cost": 240,
+        "link": "https://example.com/product",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "lights",
+        "name": "Vanity Lights",
+        "cost": 85.5,
+        "link": "https://example.com/quote",
+        "completed": true,
+        "notes": "Installed by contractor",
+        "paid": {
+          "Evan": true,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "install",
+        "name": "Installation Labor",
+        "cost": 350,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "paint",
+        "name": "Paint",
+        "cost": 60,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "caulk",
+        "name": "Caulk",
+        "cost": 12,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      }
+    ]
+  },
+  {
+    "id": "kitchen-fixtures-2026",
+    "name": "Kitchen Fixtures",
+    "category": "Kitchen",
+    "location": "Main Kitchen",
+    "startDate": "2026-08-10",
+    "notes": "Replace the faucet and update cabinet hardware.",
+    "split": {
+      "mode": "amount",
+      "values": {
+        "Evan": 180,
+        "Ishan": 120
+      }
+    },
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "faucet",
+        "name": "Pull-down Faucet",
+        "cost": 210,
+        "link": "https://example.com/faucet",
+        "completed": false,
+        "notes": "Compare brushed nickel options.",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "hardware",
+        "name": "Cabinet Hardware",
+        "cost": 90,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      }
+    ]
+  }
+]

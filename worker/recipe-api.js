@@ -7,45 +7,53 @@ const corsHeaders = {
 export default {
   async fetch(request, env) {
     if (request.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
-    if (request.method === "GET") return getRecipes(env);
-    if (request.method === "PUT") return updateRecipes(request, env);
+    const resource = request.url.includes("resource=improvements") ? "improvements" : "recipes";
+    if (request.method === "GET") return getFile(env, resource);
+    if (request.method === "PUT") return updateFile(request, env, resource);
     return json({ error: "Method not allowed" }, 405);
   }
 };
 
-async function getRecipes(env) {
-  const response = await githubRequest(env, `contents/${env.RECIPE_PATH}`);
-  if (!response.ok) return githubError(response, "Could not read recipes");
+async function getFile(env, resource) {
+  const path = resourcePath(env, resource);
+  const response = await githubRequest(env, `contents/${path}`);
+  if (!response.ok) return githubError(response, `Could not read ${resource}`);
   const file = await response.json();
-  const recipes = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(file.content.replace(/\n/g, "")), (character) => character.charCodeAt(0))));
-  return json({ recipes });
+  const data = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(file.content.replace(/\n/g, "")), (character) => character.charCodeAt(0))));
+  return json({ [resource === "improvements" ? "improvements" : "recipes"]: data });
 }
 
-async function updateRecipes(request, env) {
+async function updateFile(request, env, resource) {
   if (!env.RECIPE_WRITE_KEY || request.headers.get("X-Recipe-Key") !== env.RECIPE_WRITE_KEY) {
     return json({ error: "Invalid recipe write key" }, 401);
   }
 
   const payload = await request.json();
-  if (!Array.isArray(payload.recipes)) return json({ error: "recipes must be an array" }, 400);
+  const field = resource === "improvements" ? "improvements" : "recipes";
+  if (!Array.isArray(payload[field])) return json({ error: `${field} must be an array` }, 400);
+  const path = resourcePath(env, resource);
 
-  const currentResponse = await githubRequest(env, `contents/${env.RECIPE_PATH}`);
-  if (!currentResponse.ok) return githubError(currentResponse, "Could not read current recipes");
+  const currentResponse = await githubRequest(env, `contents/${path}`);
+  if (!currentResponse.ok) return githubError(currentResponse, `Could not read current ${resource}`);
   const currentFile = await currentResponse.json();
-  const content = `${JSON.stringify(payload.recipes, null, 2)}\n`;
-  const updateResponse = await githubRequest(env, `contents/${env.RECIPE_PATH}`, {
+  const content = `${JSON.stringify(payload[field], null, 2)}\n`;
+  const updateResponse = await githubRequest(env, `contents/${path}`, {
     method: "PUT",
     body: JSON.stringify({
-      message: "Update recipes",
+      message: `Update ${resource}`,
       content: encodeBase64(content),
       sha: currentFile.sha,
       branch: env.GITHUB_BRANCH || "main"
     })
   });
 
-  if (updateResponse.status === 409) return json({ error: "Recipes changed elsewhere. Reload and try again." }, 409);
-  if (!updateResponse.ok) return githubError(updateResponse, "Could not save recipes");
+  if (updateResponse.status === 409) return json({ error: `${resource} changed elsewhere. Reload and try again.` }, 409);
+  if (!updateResponse.ok) return githubError(updateResponse, `Could not save ${resource}`);
   return json({ saved: true });
+}
+
+function resourcePath(env, resource) {
+  return resource === "improvements" ? env.IMPROVEMENTS_PATH : env.RECIPE_PATH;
 }
 
 function githubRequest(env, path, options = {}) {

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A private, local-first tracker for home improvement projects, costs, and payments." />
+  <title>Home Improvements</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    :root { --panel: rgba(18, 24, 43, 0.92); --panel-light: rgba(28, 38, 68, 0.95); --line: #2d3b67; --accent: #ffcc88; --green: #8ee0b0; --danger: #ff9b9b; --muted: #aab7d4; }
+    * { box-sizing: border-box; }
+    body { min-height: 100vh; }
+    .improvements-shell { width: min(1240px, calc(100% - 2rem)); margin: 0 auto; }
+    .improvements-header { display: flex; align-items: end; justify-content: space-between; gap: 2rem; text-align: left; }
+    .improvements-header h1 { font-size: clamp(2.4rem, 7vw, 5rem); }
+    .eyebrow { color: var(--accent); font: 700 .75rem Arial, sans-serif; letter-spacing: .14em; text-transform: uppercase; }
+    .header-mark { color: var(--accent); font-size: 4rem; line-height: 1; }
+    .tracker-main { max-width: none; padding: 2rem 0 4rem; border: 0; }
+    .toolbar, .status-row, .tabs, .split-controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+    .toolbar { margin-bottom: 1rem; }
+    .toolbar input, .toolbar select, .project-form input, .project-form select, .project-form textarea, .item-input { min-height: 2.7rem; width: 100%; padding: .55rem .7rem; color: #eaf2ff; border: 1px solid var(--line); border-radius: 5px; background: #11182d; }
+    .toolbar input { flex: 1 1 18rem; }
+    .toolbar select { flex: 0 1 13rem; }
+    .button { min-height: 2.7rem; padding: .55rem .85rem; color: #eaf2ff; border: 1px solid var(--line); border-radius: 5px; background: var(--panel-light); cursor: pointer; font: 700 .85rem Arial, sans-serif; }
+    .button:hover, .button[aria-selected="true"] { border-color: var(--accent); color: #171b28; background: var(--accent); }
+    .button.danger { color: var(--danger); }
+    .button.danger:hover { color: #171b28; background: var(--danger); }
+    .status-row { min-height: 2rem; justify-content: space-between; color: var(--muted); font: .82rem Arial, sans-serif; }
+    .status-row .error, .validation { color: var(--danger); }
+    .tabs { margin: 1rem 0; border-bottom: 1px solid var(--line); }
+    .tab { border: 0; border-bottom: 3px solid transparent; border-radius: 0; background: transparent; }
+    .tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); background: transparent; }
+    .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+    .project-card { display: flex; min-height: 260px; flex-direction: column; padding: 1.15rem; border: 1px solid var(--line); border-radius: 8px; background: linear-gradient(150deg, var(--panel-light), var(--panel)); box-shadow: 0 10px 30px rgba(0,0,0,.2); animation: appear .3s ease both; }
+    .project-card.completed { opacity: .78; }
+    .card-top { display: flex; justify-content: space-between; gap: 1rem; }
+    .project-card h2 { margin: .3rem 0 .4rem; color: #fff; font-size: 1.45rem; }
+    .tag, .card-date { color: var(--accent); font: 700 .73rem Arial, sans-serif; letter-spacing: .08em; text-transform: uppercase; }
+    .card-date { color: var(--muted); letter-spacing: 0; text-transform: none; }
+    .card-notes { color: var(--muted); }
+    .card-total { margin: .8rem 0; color: #fff; font-size: 1.55rem; font-weight: 700; }
+    .payment-list { display: grid; gap: .35rem; margin-top: auto; color: var(--muted); font: .82rem Arial, sans-serif; }
+    .payment-list span { display: flex; justify-content: space-between; gap: .5rem; }
+    .payment-list strong { color: var(--green); font-weight: 600; }
+    .card-actions { display: flex; gap: .6rem; margin-top: 1rem; }
+    .empty-state { grid-column: 1 / -1; padding: 3rem 1rem; text-align: center; color: var(--muted); }
+    dialog { width: min(1040px, calc(100% - 1.5rem)); max-height: calc(100vh - 1.5rem); padding: 0; color: #eaf2ff; border: 1px solid var(--line); border-radius: 8px; background: #12182b; box-shadow: 0 25px 80px rgba(0,0,0,.45); }
+    dialog::backdrop { background: rgba(3, 6, 14, .72); }
+    .dialog-inner { padding: 1.35rem; }
+    .dialog-heading { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+    .dialog-heading h2 { margin: 0 0 1rem; color: #fff; }
+    .close-button { border: 0; color: var(--muted); background: transparent; font-size: 1.5rem; cursor: pointer; }
+    .project-form { display: grid; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .project-form label { display: grid; gap: .35rem; color: var(--muted); font: 700 .75rem Arial, sans-serif; letter-spacing: .05em; text-transform: uppercase; }
+    .project-form textarea { min-height: 5rem; resize: vertical; }
+    .items-heading { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .items-heading h3, .split-panel h3 { margin: 0; color: var(--accent); font-size: 1rem; }
+    .items-table { overflow-x: auto; }
+    .items-table table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: .85rem; }
+    .items-table th { color: var(--muted); font: 700 .7rem Arial, sans-serif; letter-spacing: .05em; text-align: left; text-transform: uppercase; }
+    .items-table th, .items-table td { padding: .55rem .35rem; border-bottom: 1px solid #263354; vertical-align: middle; }
+    .items-table td:nth-child(2) { width: 7.5rem; }
+    .items-table td:nth-child(3) { width: 16rem; }
+    .items-table td:nth-child(4), .items-table td:nth-child(5) { width: 4rem; text-align: center; }
+    .item-input[type="number"] { text-align: right; }
+    .check { width: 1.1rem; height: 1.1rem; accent-color: var(--green); }
+    .split-panel { display: grid; gap: .8rem; padding: 1rem; border: 1px solid var(--line); background: rgba(24, 31, 56, .72); }
+    .split-person { display: grid; grid-template-columns: 6rem minmax(7rem, 10rem) 1fr; align-items: center; gap: .7rem; }
+    .split-person strong { color: #fff; }
+    .split-person span { color: var(--muted); font: .82rem Arial, sans-serif; }
+    .form-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .7rem; }
+    .action-group { display: flex; gap: .7rem; }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 640px) { .improvements-header { align-items: start; padding-top: 2rem; } .header-mark { display: none; } .form-row, .split-person { grid-template-columns: 1fr; } .toolbar > * { flex-basis: 100%; } .form-actions, .action-group { width: 100%; } .form-actions .button, .action-group .button { flex: 1; } }
+  </style>
+</head>
+<body class="dark">
+  <div class="improvements-shell">
+    <header class="improvements-header">
+      <div><p class="eyebrow">Evan Gunderson's</p><h1>Home Improvements</h1><p>Projects, costs, and who has paid what.</p></div>
+      <div class="header-mark" aria-hidden="true">⌂</div>
+    </header>
+    <main class="tracker-main">
+      <div class="toolbar" aria-label="Project controls">
+        <input id="search" type="search" placeholder="Search projects..." aria-label="Search projects" />
+        <select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select>
+        <select id="person-filter" aria-label="Filter by unpaid person"><option value="all">Everyone's projects</option><option value="Evan">Unpaid for Evan</option><option value="Ishan">Unpaid for Ishan</option></select>
+        <select id="sort-control" aria-label="Sort projects"><option value="name">Sort: name</option><option value="total">Sort: total cost</option><option value="startDate">Sort: start date</option><option value="completedDate">Sort: completion date</option></select>
+        <button class="button" id="sync-button" type="button">Save to cloud</button><button class="button" id="add-project" type="button">+ Add project</button>
+      </div>
+      <div class="status-row"><span id="sync-status" aria-live="polite">Using this device</span><span id="project-count"></span></div>
+      <div class="tabs" role="tablist"><button class="button tab" id="active-tab" role="tab" aria-selected="true" type="button">Active</button><button class="button tab" id="completed-tab" role="tab" aria-selected="false" type="button">Completed</button></div>
+      <section class="project-grid" id="project-grid" aria-live="polite"></section>
+    </main>
+  </div>
+  <dialog id="project-dialog"><div class="dialog-inner"><div class="dialog-heading"><h2 id="dialog-title">Add a project</h2><button class="close-button" id="close-dialog" type="button" aria-label="Close">&times;</button></div><form class="project-form" id="project-form">
+    <input id="project-id" type="hidden" />
+    <div class="form-row"><label>Project name<input id="project-name" required maxlength="80" /></label><label>Category<input id="project-category" required maxlength="40" /></label></div>
+    <div class="form-row"><label>Location<input id="project-location" maxlength="80" /></label><label>Start date<input id="project-start-date" type="date" /></label></div>
+    <label>Notes<textarea id="project-notes" maxlength="1000"></textarea></label>
+    <label><span>Project completed</span><span><input class="check" id="project-completed" type="checkbox" /> Mark this project completed</span></label>
+    <div><div class="items-heading"><h3>Line items</h3><button class="button" id="add-item" type="button">+ Add item</button></div><div class="items-table"><table><thead><tr><th>Item</th><th>Cost</th><th>Link</th><th>Done</th><th>Evan paid</th><th>Ishan paid</th><th></th></tr></thead><tbody id="items-body"></tbody></table></div><p class="card-total">Total: <span id="form-total">$0.00</span></p></div>
+    <div class="split-panel"><h3>Cost split</h3><div class="split-controls"><label><input type="radio" name="split-mode" value="percentage" checked /> Percentage</label><label><input type="radio" name="split-mode" value="amount" /> Fixed amount</label></div><div id="split-people"></div><p class="validation" id="split-validation" aria-live="polite"></p></div>
+    <div class="form-actions"><button class="button danger" id="delete-project" type="button">Delete project</button><div class="action-group"><button class="button" id="cancel-dialog" type="button">Cancel</button><button class="button" type="submit">Save project</button></div></div>
+  </form></div></dialog>
+  <script>
+    const PEOPLE = ["Evan", "Ishan"];
+    const API_URL = "https://recipe-book-api.2thetophat2.workers.dev?resource=improvements";
+    const STORAGE_KEY = "home-improvements-data";
+    const starterData = [{ id: "bathroom-remodel-2026", name: "Bathroom Remodel", category: "Bathroom", location: "Guest Bathroom", startDate: "2026-06-01", notes: "Full refresh before guests arrive.", split: { mode: "percentage", values: { Evan: 60, Ishan: 40 } }, completed: false, completedDate: null, items: [{ id: "sink", name: "New Sink", cost: 240, link: "https://example.com/product", completed: false, paid: { Evan: false, Ishan: false } }, { id: "lights", name: "Vanity Lights", cost: 85.5, link: "https://example.com/quote", completed: true, paid: { Evan: true, Ishan: false } }, { id: "install", name: "Installation Labor", cost: 350, link: "", completed: false, paid: { Evan: false, Ishan: false } }, { id: "paint", name: "Paint", cost: 60, link: "", completed: false, paid: { Evan: false, Ishan: false } }, { id: "caulk", name: "Caulk", cost: 12, link: "", completed: false, paid: { Evan: false, Ishan: false } }] }, { id: "kitchen-fixtures-2026", name: "Kitchen Fixtures", category: "Kitchen", location: "Main Kitchen", startDate: "2026-08-10", notes: "Replace the faucet and update cabinet hardware.", split: { mode: "amount", values: { Evan: 180, Ishan: 120 } }, completed: false, completedDate: null, items: [{ id: "faucet", name: "Pull-down Faucet", cost: 210, link: "https://example.com/faucet", completed: false, paid: { Evan: false, Ishan: false } }, { id: "hardware", name: "Cabinet Hardware", cost: 90, link: "", completed: false, paid: { Evan: false, Ishan: true } }] }];
+    let projects = normalizeProjects(JSON.parse(localStorage.getItem(STORAGE_KEY) || "null") || starterData);
+    let currentTab = "active";
+    let editingProject = null;
+    let draftSplitValues = { Evan: 0, Ishan: 0 };
+    const grid = document.getElementById("project-grid");
+    const dialog = document.getElementById("project-dialog");
+    const form = document.getElementById("project-form");
+    const money = (value) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(Number(value) || 0);
+    const escapeHtml = (value) => String(value ?? "").replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" }[character]));
+    function blankItem() { return { id: `item-${Date.now()}-${Math.random().toString(16).slice(2)}`, name: "", cost: 0, link: "", completed: false, notes: "", paid: { Evan: false, Ishan: false } }; }
+    function normalizeProjects(value) { return (Array.isArray(value) ? value : []).map((project) => ({ id: project.id || `project-${Date.now()}`, name: project.name || "Untitled project", category: project.category || "Other", location: project.location || "", startDate: project.startDate || "", notes: project.notes || "", split: { mode: project.split?.mode === "amount" ? "amount" : "percentage", values: Object.fromEntries(PEOPLE.map((person) => [person, Number(project.split?.values?.[person]) || 0])) }, completed: Boolean(project.completed), completedDate: project.completedDate || null, items: (Array.isArray(project.items) ? project.items : []).map((item) => ({ ...blankItem(), ...item, cost: Number(item.cost) || 0, paid: Object.fromEntries(PEOPLE.map((person) => [person, Boolean(item.paid?.[person])])) })) })); }
+    function saveLocally() { localStorage.setItem(STORAGE_KEY, JSON.stringify(projects)); }
+    function total(project) { return project.items.reduce((sum, item) => sum + (Number(item.cost) || 0), 0); }
+    function owed(project, person) { return project.split.mode === "percentage" ? total(project) * project.split.values[person] / 100 : project.split.values[person]; }
+    function paid(project, person) { return project.items.reduce((sum, item) => sum + (item.paid[person] ? Number(item.cost) || 0 : 0), 0); }
+    function hasUnpaid(project, person) { return project.items.some((item) => !item.paid[person]); }
+    function setStatus(message, error = false) { const status = document.getElementById("sync-status"); status.textContent = message; status.className = error ? "error" : ""; }
+    function updateCategories() { const select = document.getElementById("category-filter"); const selected = select.value; const categories = [...new Set(projects.map((project) => project.category).filter(Boolean))].sort(); select.innerHTML = `<option value="all">All categories</option>${categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join("")}`; select.value = categories.includes(selected) ? selected : "all"; }
+    function render() { updateCategories(); const term = document.getElementById("search").value.toLowerCase().trim(); const category = document.getElementById("category-filter").value; const person = document.getElementById("person-filter").value; const sort = document.getElementById("sort-control").value; const visible = projects.filter((project) => (currentTab === "completed" ? project.completed : !project.completed)).filter((project) => `${project.name} ${project.category} ${project.location} ${project.notes}`.toLowerCase().includes(term)).filter((project) => category === "all" || project.category === category).filter((project) => person === "all" || hasUnpaid(project, person)).sort((a, b) => { if (sort === "total") return total(b) - total(a); if (sort === "startDate" || sort === "completedDate") return String(b[sort] || "").localeCompare(String(a[sort] || "")); return a.name.localeCompare(b.name); }); document.getElementById("project-count").textContent = `${visible.length} project${visible.length === 1 ? "" : "s"}`; grid.innerHTML = visible.length ? visible.map((project, index) => `<article class="project-card ${project.completed ? "completed" : ""}" style="animation-delay:${index * 40}ms"><div class="card-top"><div><span class="tag">${escapeHtml(project.category)}</span><h2>${escapeHtml(project.name)}</h2></div><span class="card-date">${project.completed ? "Completed" : project.startDate || "No start date"}</span></div><p class="card-notes">${escapeHtml(project.location || project.notes || "No notes yet.")}</p><div class="card-total">${money(total(project))}</div><div class="payment-list"><span>Split <strong>${PEOPLE.map((person) => project.split.mode === "percentage" ? `${person} ${project.split.values[person]}%` : `${person} ${money(project.split.values[person])}`).join(" / ")}</strong></span>${PEOPLE.map((person) => `<span>${person} <strong>${money(paid(project, person))} / ${money(owed(project, person))}</strong></span>`).join("")}</div><div class="card-actions"><button class="button" data-action="edit" data-id="${escapeHtml(project.id)}" type="button">Open details</button></div></article>`).join("") : `<p class="empty-state">No ${currentTab} projects match these filters.</p>`; }
+    function renderItems(items) { document.getElementById("items-body").innerHTML = items.map((item) => `<tr data-item-id="${escapeHtml(item.id)}"><td><input class="item-input" data-field="name" value="${escapeHtml(item.name)}" placeholder="Item name" required /><input class="item-input" data-field="notes" value="${escapeHtml(item.notes)}" placeholder="Notes" aria-label="Item notes" /></td><td><input class="item-input" data-field="cost" type="number" min="0" step="0.01" value="${item.cost}" aria-label="Cost" /></td><td><input class="item-input" data-field="link" type="url" value="${escapeHtml(item.link)}" placeholder="https://..." aria-label="Link" />${item.link ? `<a href="${escapeHtml(item.link)}" target="_blank" rel="noopener noreferrer">Open link</a>` : ""}</td><td><input class="check" data-field="completed" type="checkbox" ${item.completed ? "checked" : ""} aria-label="Item completed" /></td><td><input class="check" data-person="Evan" type="checkbox" ${item.paid.Evan ? "checked" : ""} aria-label="Evan paid" /></td><td><input class="check" data-person="Ishan" type="checkbox" ${item.paid.Ishan ? "checked" : ""} aria-label="Ishan paid" /></td><td><button class="button danger" data-action="remove-item" type="button" aria-label="Delete ${escapeHtml(item.name || "item")}">Delete</button></td></tr>`).join(""); }
+    function renderSplit() { const project = readForm(); const mode = document.querySelector('input[name="split-mode"]:checked').value; document.getElementById("form-total").textContent = money(total(project)); document.getElementById("split-people").innerHTML = PEOPLE.map((person) => `<div class="split-person"><strong>${person}</strong><input class="item-input" data-split-person="${person}" type="number" min="0" step="${mode === "percentage" ? "1" : "0.01"}" value="${draftSplitValues[person] || 0}" /><span>Owes ${money(mode === "percentage" ? total(project) * draftSplitValues[person] / 100 : draftSplitValues[person])}; paid ${money(paid(project, person))}</span></div>`).join(""); validateSplit(); }
+    function readForm() { return { items: [...document.querySelectorAll("#items-body tr")].map((row) => ({ id: row.dataset.itemId, name: row.querySelector('[data-field="name"]').value.trim(), cost: Number(row.querySelector('[data-field="cost"]').value) || 0, link: row.querySelector('[data-field="link"]').value.trim(), completed: row.querySelector('[data-field="completed"]').checked, notes: row.querySelector('[data-field="notes"]').value.trim(), paid: { Evan: row.querySelector('[data-person="Evan"]').checked, Ishan: row.querySelector('[data-person="Ishan"]').checked } })), split: { mode: document.querySelector('input[name="split-mode"]:checked').value, values: Object.fromEntries(PEOPLE.map((person) => [person, Number(document.querySelector(`[data-split-person="${person}"]`)?.value) || draftSplitValues[person] || 0])) } }; }
+    function validateSplit() { if (!editingProject) return true; const data = readForm(); const sum = PEOPLE.reduce((value, person) => value + data.split.values[person], 0); const expected = data.split.mode === "percentage" ? 100 : total(data); const valid = Math.abs(sum - expected) < .01; document.getElementById("split-validation").textContent = valid ? "Split is balanced." : `${data.split.mode === "percentage" ? "Percentages" : "Amounts"} total ${data.split.mode === "percentage" ? `${sum}%` : money(sum)}; expected ${data.split.mode === "percentage" ? "100%" : money(expected)}.`; return valid; }
+    function openEditor(project) { editingProject = project || { id: `project-${Date.now()}`, name: "", category: "", location: "", startDate: "", notes: "", completed: false, completedDate: null, items: [blankItem()], split: { mode: "percentage", values: { Evan: 50, Ishan: 50 } } }; draftSplitValues = { ...editingProject.split.values }; document.getElementById("dialog-title").textContent = project ? "Edit project" : "Add a project"; document.getElementById("project-id").value = editingProject.id; document.getElementById("project-name").value = editingProject.name; document.getElementById("project-category").value = editingProject.category; document.getElementById("project-location").value = editingProject.location; document.getElementById("project-start-date").value = editingProject.startDate; document.getElementById("project-notes").value = editingProject.notes; document.getElementById("project-completed").checked = editingProject.completed; document.querySelector(`input[name="split-mode"][value="${editingProject.split.mode}"]`).checked = true; renderItems(editingProject.items); renderSplit(); document.getElementById("delete-project").hidden = !project; dialog.showModal(); }
+    async function loadCloud() { try { const response = await fetch(API_URL); if (!response.ok) throw new Error("Cloud load failed"); const payload = await response.json(); if (Array.isArray(payload.improvements)) { projects = normalizeProjects(payload.improvements); saveLocally(); render(); setStatus("Synced from cloud"); } } catch (error) { setStatus("Cloud sync unavailable; using this device", true); } }
+    async function saveCloud() { saveLocally(); const writeKey = prompt("Enter your recipe write key:"); if (!writeKey) return; try { const response = await fetch(API_URL, { method: "PUT", headers: { "Content-Type": "application/json", "X-Recipe-Key": writeKey }, body: JSON.stringify({ improvements: projects }) }); const payload = await response.json(); if (!response.ok) throw new Error(payload.error || "Cloud save failed"); setStatus("Saved to cloud"); } catch (error) { setStatus(error.message, true); } }
+    document.getElementById("add-project").addEventListener("click", () => openEditor());
+    document.getElementById("sync-button").addEventListener("click", saveCloud);
+    ["search", "category-filter", "person-filter", "sort-control"].forEach((id) => document.getElementById(id).addEventListener(id === "search" ? "input" : "change", render));
+    ["active-tab", "completed-tab"].forEach((id) => document.getElementById(id).addEventListener("click", (event) => { currentTab = id === "completed-tab" ? "completed" : "active"; document.querySelectorAll(".tab").forEach((tab) => tab.setAttribute("aria-selected", tab === event.currentTarget)); render(); }));
+    document.getElementById("close-dialog").addEventListener("click", () => dialog.close()); document.getElementById("cancel-dialog").addEventListener("click", () => dialog.close());
+    document.getElementById("add-item").addEventListener("click", () => { const items = readForm().items; items.push(blankItem()); renderItems(items); renderSplit(); });
+    document.getElementById("items-body").addEventListener("input", () => { document.getElementById("form-total").textContent = money(total(readForm())); renderSplit(); });
+    document.getElementById("items-body").addEventListener("change", () => { document.getElementById("form-total").textContent = money(total(readForm())); renderSplit(); });
+    document.getElementById("items-body").addEventListener("click", (event) => { if (!event.target.matches('[data-action="remove-item"]')) return; const items = readForm().items.filter((item) => item.id !== event.target.closest("tr").dataset.itemId); renderItems(items.length ? items : [blankItem()]); renderSplit(); });
+    document.getElementById("split-people").addEventListener("input", (event) => { if (event.target.matches("[data-split-person]")) draftSplitValues[event.target.dataset.splitPerson] = Number(event.target.value) || 0; validateSplit(); });
+    document.querySelectorAll('input[name="split-mode"]').forEach((input) => input.addEventListener("change", renderSplit));
+    grid.addEventListener("click", (event) => { const button = event.target.closest("[data-action=" + "edit]"); if (button) openEditor(projects.find((project) => project.id === button.dataset.id)); });
+    document.getElementById("delete-project").addEventListener("click", () => { if (editingProject && confirm(`Delete ${editingProject.name || "this project"}?`)) { projects = projects.filter((project) => project.id !== editingProject.id); saveLocally(); dialog.close(); render(); } });
+    form.addEventListener("submit", (event) => { event.preventDefault(); if (!validateSplit()) return; const data = readForm(); const completed = document.getElementById("project-completed").checked; const project = { ...editingProject, id: document.getElementById("project-id").value, name: document.getElementById("project-name").value.trim(), category: document.getElementById("project-category").value.trim(), location: document.getElementById("project-location").value.trim(), startDate: document.getElementById("project-start-date").value, notes: document.getElementById("project-notes").value.trim(), completed, completedDate: completed ? (editingProject.completedDate || new Date().toISOString().slice(0, 10)) : null, items: data.items, split: data.split }; projects = projects.some((item) => item.id === project.id) ? projects.map((item) => item.id === project.id ? project : item) : [project, ...projects]; saveLocally(); dialog.close(); render(); });
+    render(); loadCloud();
+  </script>
+</body>
+</html>
