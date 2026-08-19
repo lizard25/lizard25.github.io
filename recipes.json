@@ -1,79 +1,168 @@
 [
   {
-    "id": "1784138859930",
-    "name": "tst",
+    "id": "1787070766396",
+    "name": "Patio soup",
     "category": "dinner",
-    "time": "32",
-    "description": "tst",
+    "time": "30 min",
+    "description": "patio cream of chicken rice soup 4 servings",
     "ingredients": [
-      "tst"
+      "1 tbsp butter",
+      "1/2 cup diced onion",
+      "1 large finely julienned carrot",
+      "1 stick celery diced",
+      "1/2 tsp minced garlic",
+      "2 cans (14.5 ounce) chicken broth",
+      "1/3 cup uncooked rice",
+      "1/2 teaspoon basil",
+      "1/4 teaspoon black pepper",
+      "3 Tablespoons all-purpose flour",
+      "1 (12 ounce) can evaporated milk (or heavy cream)",
+      "1 1/2 cups cooked pulled or diced chicken"
     ],
     "steps": [
-      "Prepare the ingredients.",
-      "Cook until done and serve."
+      "Note for evaporated milk because I don't wanna buy it separately: For every 1 cup of evaporated milk, take 2 1/2 cups of milk and boil it down until there is only 1 cup of milk in your pan. This is now the equivalent of 1 cup of evaporated milk.",
+      "In a large pot add oil, onion, carrot, and celery.",
+      "Sauté until vegetables are soft and tender",
+      "Add garlic and sauté for 1 minute longer",
+      "Add chicken broth, uncooked rice, basil and pepper. Bring to a boil",
+      "Reduce heat to low, cover and let simmer for 15 minutes or until rice is cooked",
+      "In a small bowl combine flour and milk. Stir into the soup",
+      "Bring to a boil and cook while stirring for 2 minutes.",
+      "Add chicken and cook 2 more minutes until chicken is cooked through"
     ],
     "favorite": false
   },
   {
-    "id": "lemon-pasta",
-    "name": "Lemon Ricotta Pasta",
-    "category": "dinner",
-    "time": "25 min",
-    "description": "Bright, creamy pasta for the nights when dinner should be easy.",
+    "id": "1785885658414",
+    "name": "Cheesecake-like Key Lemon Pie",
+    "category": "dessert",
+    "time": "<60 minutes",
+    "description": "Key lemon pie, but with a consistency like a cheesecake",
     "ingredients": [
-      "spaghetti",
-      "ricotta",
-      "lemon",
-      "parmesan",
-      "black pepper"
+      "Graham Cracker Pie Crust - 10 inch x 1",
+      "Lemons (Zest + Juice) x 5",
+      "Sweetened Condensed Milk - 3 cups (3 small cans)",
+      "Sour Cream - 0.5 cups"
     ],
     "steps": [
-      "Cook the spaghetti until just tender, reserving a cup of pasta water.",
-      "Stir together ricotta, lemon zest, parmesan, and pepper.",
-      "Toss the pasta with the ricotta mixture, loosening with pasta water until creamy.",
-      "Finish with lemon juice and extra parmesan."
-    ],
-    "favorite": true
-  },
-  {
-    "id": "crispy-potatoes",
-    "name": "Crispy Smashed Potatoes",
-    "category": "sides",
-    "time": "45 min",
-    "description": "Golden edges, fluffy centers, and enough garlic to make the kitchen smell right.",
-    "ingredients": [
-      "baby potatoes",
-      "olive oil",
-      "garlic",
-      "rosemary",
-      "sea salt"
-    ],
-    "steps": [
-      "Boil the potatoes until fork-tender, then drain and cool briefly.",
-      "Place them on a baking sheet and gently smash each one.",
-      "Drizzle with oil, then season with garlic, rosemary, and salt.",
-      "Roast until the edges are deeply golden and crisp."
+      "1. Pre-heat oven to 350 degrees (Fahrenheit).",
+      "2. Mix all ingredients (except pie crust) together in a bowl.",
+      "3. Pour all wet batter into pie crust.",
+      "4. Place pie into oven on the top shelf, cook until top is lightly browned."
     ],
     "favorite": false
   },
   {
-    "id": "berry-oats",
-    "name": "Roasted Berry Oats",
-    "category": "breakfast",
-    "time": "35 min",
-    "description": "A make-ahead breakfast with jammy berries and a toasted oat topping.",
+    "id": "1785856262378",
+    "name": "Italian Meat sauce",
+    "category": "dinner",
+    "time": "40 mins",
+    "description": "Italian sausage meat sauce, this is a 8 servings make less if you want less. you can make the tomato sauce yourself but it takes forever.",
     "ingredients": [
-      "rolled oats",
-      "mixed berries",
-      "maple syrup",
-      "milk",
-      "cinnamon"
+      "Olive oil",
+      "1 medium yellow onion",
+      "Salt",
+      "4 cloves garlic",
+      "2 pounds italian sausage or alt meat",
+      "2 teaspoons italian seasoning",
+      "1/4 teaspoon red pepper flakes (if you want)",
+      "28 ounces tomato sauce",
+      "1/6 cup grated parmesan cheese"
     ],
     "steps": [
-      "Heat the oven and add the berries to a small baking dish.",
-      "Stir the oats, milk, maple syrup, and cinnamon together.",
-      "Spoon the oat mixture over the berries.",
-      "Bake until the topping is golden and the berries are bubbling."
+      "Finely chop onion",
+      "To a pot or large sauce pan add olive oil, yellow onion and a pinch of salt. Stir and cook 8 to 10 minutes slightly below medium to soften",
+      "Mince garlic",
+      "Add garlic and cook for 1 more minute",
+      "Raise heat to medium",
+      "Add italian sausage or alternative ground beef and break up into small bits",
+      "Cook until browned",
+      "Add the italian seasoning and a pinch of red pepper flakes. Stir and cook 1 to 2 minutes.",
+      "Pour in the tomato sauce, add parmesan cheese and season with 1 tsp salt, black pepper and a pinch of sugar. Stir well to incorporate all of the ingredients.",
+      "Cover, reduce the temperature to medium-low and simmer for 15 minutes"
+    ],
+    "favorite": false
+  },
+  {
+    "id": "1785855266761",
+    "name": "Baked Mostaccioli",
+    "category": "dinner",
+    "time": "40-60 mins",
+    "description": "Chicago land area regional baked pasta. Barnellis style. Time depends on sauce methods",
+    "ingredients": [
+      "Mostaccioli noodles",
+      "Meat sauce (make it or buy it)",
+      "Mozzarella cheese",
+      "Asiago cheese"
+    ],
+    "steps": [
+      "Set oven pre-heat to 350",
+      "Cook pasta using heavily salted water until al dente or slightly less",
+      "Drain water, add olive oil, and mix",
+      "Warm red sauce to a near simmer",
+      "Add pasta to red sauce (should contain garlic and italian sausage) recipe for candidate sauce available",
+      "Toss pasta in warmed sauce",
+      "Add pasta to baking dish and generously cover in shredded mozzarella and grated asiago",
+      "Bake until cheese is melted bubbling and beginning to darken in spots"
+    ],
+    "favorite": false
+  },
+  {
+    "id": "1784145605574",
+    "name": "Rosemary Butter Steak",
+    "category": "dinner",
+    "time": "20 min",
+    "description": "adaptable for multiple cuts of steak.",
+    "ingredients": [
+      "1 steak of desired cut (6-10oz)",
+      "3 cloves garlic",
+      "1/2 stick butter, melted",
+      "Splash olive oil",
+      "2 twigs rosemary",
+      "Salt",
+      "Pepper",
+      "(optional) 1 tsp sage",
+      "(optional) 1 tsp thyme"
+    ],
+    "steps": [
+      "Take steak out of fridge and add salt and pepper on all sides.",
+      "Crush garlic cloves, mince for more garlic flavor.",
+      "Remove rosemary off of 1 twig, leave other for later.",
+      "Set heat to med/high and add pan at least twice as large as steak for 3 mins. for cast iron heat for 5 to 7 mins.",
+      "Mix herbs (not the second twig of rosemary) and melted butter in a small bowl",
+      "Add olive oil and steak to pan on one side",
+      "Add the butter mixture to the other side of the pan",
+      "As steak cooks on each side spoon over butter mixture.",
+      "When finished cooking on both sides remove from heat and brush butter over using second rosemary twig.",
+      "Allow steak to rest with rosemary on top."
+    ],
+    "favorite": false
+  },
+  {
+    "id": "1784142357129",
+    "name": "Air fryer garlic herb salmon",
+    "category": "dinner",
+    "time": "10 min",
+    "description": "Ingredients per serving",
+    "ingredients": [
+      "1 filet salmon (6oz)",
+      "2 cloves garlic",
+      "5 large basil leaves",
+      "1 slice lemon (circle slice)",
+      "3 tbsp butter",
+      "Salt",
+      "Pepper"
+    ],
+    "steps": [
+      "Crush garlic cloves then mince",
+      "Finely chop basil",
+      "Microwave butter in small bowl for 5 to 10 seconds",
+      "Combine and mix butter garlic basil",
+      "Salt and pepper all sides of salmon",
+      "Pre heat air fryer to 400",
+      "Add salmon and pour over butter mixture and place lemon on top",
+      "Cook for 6-8 mins",
+      "Squeeze remaining lemon from top of salmon and discard it"
     ],
     "favorite": false
   }
