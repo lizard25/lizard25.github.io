@@ -1,21 +1,33 @@
 [
   {
-    "id": "project-1787153380556",
-    "name": "test",
-    "category": "test",
-    "location": "test",
-    "startDate": "2026-08-08",
-    "notes": "test",
+    "id": "project-1787164248274",
+    "name": "Replace Switches and outlets",
+    "category": "Improvements",
+    "location": "Throughout House",
+    "startDate": "2026-08-31",
+    "notes": "we can also get ones that glow when off for dark places like garage for like 5 or 10 bucks each. wall plates like 50c a piece if we need them.",
     "completed": false,
     "completedDate": null,
     "items": [
       {
-        "id": "item-1787153380556-e698ff0244078",
-        "name": "test",
-        "cost": 0.02,
-        "link": "",
+        "id": "item-1787164248274-596530bc6e0dd8",
+        "name": "Outlets",
+        "cost": 14,
+        "link": "https://www.google.com/url?sa=i&source=web&cd=&ved=0CAYQmq0SahcKEwjQ__bvqa2WAxUAAAAAHQAAAAAQBw&url=%2Faclk%3Fsa%3DL%26ai%3DDChsSEwiCnIvwqa2WAxWznVoFHS7mPIIYACICCAEQARoCdnU%26co%3D1%26gclid%3DCjwKCAjwqJXUBhBNEiwA8BgG7hZQ6w2pL7OZQc9ZAeb_Zz-G9UE3hqsJ6ti6k3_l9VVa-NYRm9PODBoCMpsQAvD_BwE%26cid%3DCAASWuRoV4X-rGyxi0fWTJyVFiahvvqN1C0JsdbJoGFC0SytNis9hVh1y1k5EYuFj2JP58RD9_cM2-LW20O4AfWEEDAHiW4WGd2zNfg9ssLjeXL31dm8ATNtjF2BHw%26cce%3D2%26sig%3DAOD64_2O_T957Ej8PCGPi44HA5ZsN02Bsg%26adurl%3D%26ctype%3D46%26q%3D&psig=AOvVaw3BFp2pZ2nYymPCnifkKcNk&ust=1787250686087296&opi=95576897",
         "completed": false,
-        "notes": "",
+        "notes": "20 outlets from home depot",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "item-1787164341292-d6847d1ca586",
+        "name": "Switches",
+        "cost": 20,
+        "link": "https://www.google.com/url?sa=i&source=web&cd=&ved=0CAYQmq0SahcKEwjAvbKuqq2WAxUAAAAAHQAAAAAQBw&url=%2Faclk%3Fsa%3DL%26ai%3DDChsSEwjaq8Kuqq2WAxXRicIIHQmOOLYYACICCAEQARoCamY%26co%3D1%26gclid%3DCjwKCAjwqJXUBhBNEiwA8BgG7ppROcsCln9y4ZXfgL619Hgxo67n-6Vfv8UcuUPU6SdMKqfdd5yUcBoCx7UQAvD_BwE%26cid%3DCAASWuRoYhzMyEQuxJnUfYM0C2FzSYBmp5UT_DMKHpYj36ZPyyayUVyiXjOax4ETZLdSLNJBYwAobVdc145hbS6pWptcf-TPqtxXw78EV9XwvKhTZq6RWrDRNXkSTg%26cce%3D2%26sig%3DAOD64_02BNblmoIKQQaC8cr50sZ-gnXVhg%26adurl%3D%26ctype%3D46%26q%3D&psig=AOvVaw1VzDg0YnAB1pp1jtwHGcZ-&ust=1787250828191651&opi=95576897",
+        "completed": false,
+        "notes": "10 switches from lowes,",
         "paid": {
           "Evan": false,
           "Ishan": false
@@ -31,123 +43,32 @@
     }
   },
   {
-    "id": "bathroom-remodel-2026",
-    "name": "Bathroom Remodel",
-    "category": "Bathroom",
-    "location": "Guest Bathroom",
-    "startDate": "2026-06-01",
-    "notes": "Full refresh before guests arrive.",
+    "id": "project-1787153380556",
+    "name": "test",
+    "category": "test",
+    "location": "test",
+    "startDate": "2026-08-08",
+    "notes": "test",
     "split": {
       "mode": "percentage",
       "values": {
-        "Evan": 60,
-        "Ishan": 40
+        "Evan": 50,
+        "Ishan": 50
       }
     },
     "completed": false,
     "completedDate": null,
     "items": [
       {
-        "id": "sink",
-        "name": "New Sink",
-        "cost": 240,
-        "link": "https://example.com/product",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
-          "Ishan": false
-        }
-      },
-      {
-        "id": "lights",
-        "name": "Vanity Lights",
-        "cost": 85.5,
-        "link": "https://example.com/quote",
-        "completed": true,
-        "notes": "Installed by contractor",
-        "paid": {
-          "Evan": true,
-          "Ishan": false
-        }
-      },
-      {
-        "id": "install",
-        "name": "Installation Labor",
-        "cost": 350,
+        "id": "item-1787153380556-e698ff0244078",
+        "name": "test",
+        "cost": 0.02,
         "link": "",
         "completed": false,
         "notes": "",
         "paid": {
           "Evan": false,
           "Ishan": false
-        }
-      },
-      {
-        "id": "paint",
-        "name": "Paint",
-        "cost": 60,
-        "link": "",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
-          "Ishan": false
-        }
-      },
-      {
-        "id": "caulk",
-        "name": "Caulk",
-        "cost": 12,
-        "link": "",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
-          "Ishan": false
-        }
-      }
-    ]
-  },
-  {
-    "id": "kitchen-fixtures-2026",
-    "name": "Kitchen Fixtures",
-    "category": "Kitchen",
-    "location": "Main Kitchen",
-    "startDate": "2026-08-10",
-    "notes": "Replace the faucet and update cabinet hardware.",
-    "split": {
-      "mode": "amount",
-      "values": {
-        "Evan": 180,
-        "Ishan": 120
-      }
-    },
-    "completed": false,
-    "completedDate": null,
-    "items": [
-      {
-        "id": "faucet",
-        "name": "Pull-down Faucet",
-        "cost": 210,
-        "link": "https://example.com/faucet",
-        "completed": false,
-        "notes": "Compare brushed nickel options.",
-        "paid": {
-          "Evan": false,
-          "Ishan": false
-        }
-      },
-      {
-        "id": "hardware",
-        "name": "Cabinet Hardware",
-        "cost": 90,
-        "link": "",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
-          "Ishan": true
         }
       }
     ]
