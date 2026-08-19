@@ -1,5 +1,36 @@
 [
   {
+    "id": "project-1787153380556",
+    "name": "test",
+    "category": "test",
+    "location": "test",
+    "startDate": "2026-08-08",
+    "notes": "test",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1787153380556-e698ff0244078",
+        "name": "test",
+        "cost": 0.02,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "bathroom-remodel-2026",
     "name": "Bathroom Remodel",
     "category": "Bathroom",
