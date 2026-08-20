@@ -1,5 +1,67 @@
 [
   {
+    "id": "project-1787234393432",
+    "name": "Turn on Electric",
+    "category": "Utilities",
+    "location": "Utility meter",
+    "startDate": "2026-09-04",
+    "notes": "",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1787234393432-99887e5e303008",
+        "name": "New account deposit",
+        "cost": 220,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
+    "id": "project-1787234132561",
+    "name": "Clean House",
+    "category": "Service",
+    "location": "Throughout House",
+    "startDate": "2026-08-25",
+    "notes": "Ascend Residential Solutions. Evan (me) primary payer/one paying the company",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1787234132561-6b830ff2b3d9e",
+        "name": "Cleaners",
+        "cost": 289,
+        "link": "",
+        "completed": false,
+        "notes": "3-5 hours",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "project-1787164248274",
     "name": "Replace Switches and outlets",
     "category": "Improvements",
@@ -35,37 +97,6 @@
         "link": "https://www.google.com/url?sa=i&source=web&cd=&ved=0CAYQmq0SahcKEwjAvbKuqq2WAxUAAAAAHQAAAAAQBw&url=%2Faclk%3Fsa%3DL%26ai%3DDChsSEwjaq8Kuqq2WAxXRicIIHQmOOLYYACICCAEQARoCamY%26co%3D1%26gclid%3DCjwKCAjwqJXUBhBNEiwA8BgG7ppROcsCln9y4ZXfgL619Hgxo67n-6Vfv8UcuUPU6SdMKqfdd5yUcBoCx7UQAvD_BwE%26cid%3DCAASWuRoYhzMyEQuxJnUfYM0C2FzSYBmp5UT_DMKHpYj36ZPyyayUVyiXjOax4ETZLdSLNJBYwAobVdc145hbS6pWptcf-TPqtxXw78EV9XwvKhTZq6RWrDRNXkSTg%26cce%3D2%26sig%3DAOD64_02BNblmoIKQQaC8cr50sZ-gnXVhg%26adurl%3D%26ctype%3D46%26q%3D&psig=AOvVaw1VzDg0YnAB1pp1jtwHGcZ-&ust=1787250828191651&opi=95576897",
         "completed": false,
         "notes": "10 switches from lowes,",
-        "paid": {
-          "Evan": false,
-          "Ishan": false
-        }
-      }
-    ]
-  },
-  {
-    "id": "project-1787153380556",
-    "name": "test",
-    "category": "test",
-    "location": "test",
-    "startDate": "2026-08-08",
-    "notes": "test",
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    },
-    "completed": true,
-    "completedDate": "2026-08-19",
-    "items": [
-      {
-        "id": "item-1787153380556-e698ff0244078",
-        "name": "test",
-        "cost": 0.02,
-        "link": "",
-        "completed": false,
-        "notes": "",
         "paid": {
           "Evan": false,
           "Ishan": false
