@@ -6,13 +6,32 @@
     "location": "Utility meter",
     "startDate": "2026-09-04",
     "notes": "",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
       {
         "id": "item-1787234393432-99887e5e303008",
-        "name": "New account deposit",
-        "cost": 220,
+        "name": "New account deposit evan half",
+        "cost": 109.51,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": true,
+          "Ishan": false
+        }
+      },
+      {
+        "id": "item-1787767141308-a45b93d365151",
+        "name": "deposit ishan half",
+        "cost": 109.5,
         "link": "",
         "completed": false,
         "notes": "",
@@ -21,14 +40,7 @@
           "Ishan": false
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1787234132561",
@@ -37,6 +49,13 @@
     "location": "Throughout House",
     "startDate": "2026-08-25",
     "notes": "Ascend Residential Solutions. Evan (me) primary payer/one paying the company",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -52,14 +71,7 @@
           "Ishan": false
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1787164248274",
