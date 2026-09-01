@@ -1,5 +1,36 @@
 [
   {
+    "id": "project-1788269656852",
+    "name": "Garbage can",
+    "category": "Items",
+    "location": "Kitchen",
+    "startDate": "2026-08-31",
+    "notes": "",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1788269656852-ccdcf4b6109448",
+        "name": "Garbage can",
+        "cost": 74.87,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": false
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "project-1787234393432",
     "name": "Turn on Electric",
     "category": "Utilities",
