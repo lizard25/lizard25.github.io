@@ -1,5 +1,36 @@
 [
   {
+    "id": "project-1788361981792",
+    "name": "Couch",
+    "category": "Furniture",
+    "location": "Living Room",
+    "startDate": "",
+    "notes": "",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1788361981792-a4699cd6917ef8",
+        "name": "couch",
+        "cost": 230.83,
+        "link": "https://www.amazon.com/dp/B0GSFK4F1C?ref=cm_sw_r_cso_cp_apin_dp_D6Z9SB21KD3YAHDY0W3T&social_share=cm_sw_r_cso_cp_apin_dp_D6Z9SB21KD3YAHDY0W3T&rsd=0blYGj24llS4c5cie2HvoNbolu4qGR9cJLe5wfmdRQL21JeeDYHynFEugE8Wlc03%2FSnwKBph08wRbDJQ8%2FzzIPillb2dHEttjOdn1p9x16IOdz2mmQ%3D%3D&edk=AQIDAHi1lw%2FM8UbbSMD9ScOOFEmBMHMthHeEhqDaQYPJUAX3jQHJOPtxWhFCJ0XeaHCNW72iAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxS2qFGKETFGBeFHvAgEQgDtAdcTTAzXcD%2Faf7tYm2v172MHBht%2FPWatTJ5htRkwmINQjCa63aJr%2FxUWoEEnDEw5ml8mSHtUbUPhqMA%3D%3D&th=1",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "project-1788282564307",
     "name": "Washer+dryer",
     "category": "Appliances",
