@@ -143,24 +143,12 @@
       {
         "id": "item-1787234393432-99887e5e303008",
         "name": "New account deposit evan half",
-        "cost": 109.51,
+        "cost": 219,
         "link": "",
         "completed": false,
         "notes": "",
         "paid": {
           "Evan": true,
-          "Ishan": false
-        }
-      },
-      {
-        "id": "item-1787767141308-a45b93d365151",
-        "name": "deposit ishan half",
-        "cost": 109.5,
-        "link": "",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
           "Ishan": false
         }
       }
