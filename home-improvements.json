@@ -6,6 +6,13 @@
     "location": "Washer room",
     "startDate": "",
     "notes": "",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -21,14 +28,7 @@
           "Ishan": false
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1788282539384",
@@ -37,6 +37,13 @@
     "location": "Living Room",
     "startDate": "",
     "notes": "",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -49,17 +56,10 @@
         "notes": "",
         "paid": {
           "Evan": false,
-          "Ishan": false
+          "Ishan": true
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1788269656852",
@@ -86,7 +86,7 @@
         "completed": false,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": false
         }
       }
@@ -160,7 +160,7 @@
         "completed": false,
         "notes": "3-5 hours",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": false
         }
       }
