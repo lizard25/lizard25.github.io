@@ -6,6 +6,13 @@
     "location": "Living Room",
     "startDate": "",
     "notes": "",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -21,14 +28,7 @@
           "Ishan": true
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1788282564307",
@@ -55,7 +55,7 @@
         "completed": false,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": false
         }
       }
