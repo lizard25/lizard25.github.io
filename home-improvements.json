@@ -35,7 +35,7 @@
     "name": "Washer+dryer",
     "category": "Appliances",
     "location": "Washer room",
-    "startDate": "",
+    "startDate": "2026-09-11",
     "notes": "",
     "split": {
       "mode": "percentage",
@@ -66,7 +66,7 @@
     "name": "TV",
     "category": "Items",
     "location": "Living Room",
-    "startDate": "",
+    "startDate": "2026-08-31",
     "notes": "",
     "split": {
       "mode": "percentage",
