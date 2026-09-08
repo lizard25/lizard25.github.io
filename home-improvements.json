@@ -168,8 +168,8 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1787234132561-6b830ff2b3d9e",
