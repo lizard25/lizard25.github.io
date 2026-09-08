@@ -6,6 +6,13 @@
     "location": "House",
     "startDate": "2026-09-07",
     "notes": "",
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    },
     "completed": false,
     "completedDate": null,
     "items": [
@@ -40,18 +47,6 @@
         "link": "",
         "completed": false,
         "notes": "2of them",
-        "paid": {
-          "Evan": false,
-          "Ishan": true
-        }
-      },
-      {
-        "id": "item-1788830534507-fde7fba896a8",
-        "name": "Table",
-        "cost": 165.02,
-        "link": "",
-        "completed": false,
-        "notes": "",
         "paid": {
           "Evan": false,
           "Ishan": true
@@ -105,14 +100,7 @@
           "Ishan": true
         }
       }
-    ],
-    "split": {
-      "mode": "percentage",
-      "values": {
-        "Evan": 50,
-        "Ishan": 50
-      }
-    }
+    ]
   },
   {
     "id": "project-1788361981792",
@@ -128,18 +116,18 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1788361981792-a4699cd6917ef8",
         "name": "couch",
         "cost": 230.83,
         "link": "https://www.amazon.com/dp/B0GSFK4F1C?ref=cm_sw_r_cso_cp_apin_dp_D6Z9SB21KD3YAHDY0W3T&social_share=cm_sw_r_cso_cp_apin_dp_D6Z9SB21KD3YAHDY0W3T&rsd=0blYGj24llS4c5cie2HvoNbolu4qGR9cJLe5wfmdRQL21JeeDYHynFEugE8Wlc03%2FSnwKBph08wRbDJQ8%2FzzIPillb2dHEttjOdn1p9x16IOdz2mmQ%3D%3D&edk=AQIDAHi1lw%2FM8UbbSMD9ScOOFEmBMHMthHeEhqDaQYPJUAX3jQHJOPtxWhFCJ0XeaHCNW72iAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMxS2qFGKETFGBeFHvAgEQgDtAdcTTAzXcD%2Faf7tYm2v172MHBht%2FPWatTJ5htRkwmINQjCa63aJr%2FxUWoEEnDEw5ml8mSHtUbUPhqMA%3D%3D&th=1",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       }
@@ -159,19 +147,19 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1788282564307-99afa06c9ca1e",
         "name": "Washer dryer and install",
         "cost": 1065.72,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
           "Evan": true,
-          "Ishan": false
+          "Ishan": true
         }
       }
     ]
@@ -190,18 +178,18 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1788282539384-4cf69e529011e8",
         "name": "tv",
         "cost": 350,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       }
@@ -221,19 +209,19 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1788269656852-ccdcf4b6109448",
         "name": "Garbage can",
         "cost": 74.87,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
           "Evan": true,
-          "Ishan": false
+          "Ishan": true
         }
       }
     ]
@@ -252,19 +240,19 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-08",
     "items": [
       {
         "id": "item-1787234393432-99887e5e303008",
         "name": "New account deposit evan half",
         "cost": 219,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
           "Evan": true,
-          "Ishan": false
+          "Ishan": true
         }
       }
     ]
