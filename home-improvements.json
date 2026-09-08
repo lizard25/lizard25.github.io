@@ -1,5 +1,120 @@
 [
   {
+    "id": "project-1788830066125",
+    "name": "Amazon shit",
+    "category": "House shit",
+    "location": "House",
+    "startDate": "2026-09-07",
+    "notes": "",
+    "completed": false,
+    "completedDate": null,
+    "items": [
+      {
+        "id": "item-1788830066125-a3311bff70b3c",
+        "name": "Shower curtain",
+        "cost": 44.96,
+        "link": "https://a.co/d/06hnQcp1",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830270061-07c3b13ef94118",
+        "name": "Eth 8x",
+        "cost": 20.32,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830479654-65277bc832b168",
+        "name": "Eth 1x",
+        "cost": 15.96,
+        "link": "",
+        "completed": false,
+        "notes": "2of them",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830534507-fde7fba896a8",
+        "name": "Table",
+        "cost": 165.02,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830535189-b585b64d903648",
+        "name": "Eth switch",
+        "cost": 56.22,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830535722-63cd2e84fb71a",
+        "name": "Ant trap, silverware, plates",
+        "cost": 149.95,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830770272-d05073e0433c4",
+        "name": "Tv mount, ant trap outdoor",
+        "cost": 73.95,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      },
+      {
+        "id": "item-1788830830343-ac97c60fe233a8",
+        "name": "Safe",
+        "cost": 42.79,
+        "link": "",
+        "completed": false,
+        "notes": "",
+        "paid": {
+          "Evan": false,
+          "Ishan": true
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "project-1788361981792",
     "name": "Couch",
     "category": "Furniture",
