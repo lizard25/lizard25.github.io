@@ -44,42 +44,18 @@
         "Ishan": 50
       }
     },
-    "completed": false,
-    "completedDate": null,
+    "completed": true,
+    "completedDate": "2026-09-22",
     "items": [
       {
         "id": "item-1788830066125-a3311bff70b3c",
         "name": "Shower curtain",
         "cost": 41.96,
         "link": "https://a.co/d/06hnQcp1",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
-          "Ishan": true
-        }
-      },
-      {
-        "id": "item-1788830270061-07c3b13ef94118",
-        "name": "Eth 8x",
-        "cost": 20.32,
-        "link": "",
-        "completed": false,
-        "notes": "",
-        "paid": {
-          "Evan": false,
-          "Ishan": true
-        }
-      },
-      {
-        "id": "item-1788830479654-65277bc832b168",
-        "name": "Eth 1x",
-        "cost": 15.96,
-        "link": "",
-        "completed": false,
-        "notes": "2of them",
-        "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       },
@@ -88,10 +64,10 @@
         "name": "Eth switch",
         "cost": 56.22,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       },
@@ -100,10 +76,10 @@
         "name": "Ant trap, silverware, plates",
         "cost": 149.95,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       },
@@ -112,10 +88,10 @@
         "name": "Tv mount, ant trap outdoor",
         "cost": 73.95,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "",
         "paid": {
-          "Evan": false,
+          "Evan": true,
           "Ishan": true
         }
       }
