@@ -1,5 +1,36 @@
 [
   {
+    "id": "project-1790684320407",
+    "name": "Lawnmower",
+    "category": "Items",
+    "location": "Yard",
+    "startDate": "2026-09-24",
+    "notes": "",
+    "completed": true,
+    "completedDate": "2026-09-29",
+    "items": [
+      {
+        "id": "item-1790684320407-48116fd526dce8",
+        "name": "lawnmower",
+        "cost": 109,
+        "link": "https://www.walmart.com/ip/PowerSmart-14-13A-2-in-1-Electric-Push-Lawn-Mower-Easy-Handling/18155668085?wmlspartner=wlpa&selectedSellerId=101126138&adid=2222222222718155668085_101126138_199492704626_24219758109&wl0&wl1=g&wl2=c&wl3=823751273895&wl4=pla-2449037643288&wl5=9011831&wl6&wl7&wl8&wl9=pla&wl10=551114901&wl11=online&wl12=18155668085_101126138&veh=sem",
+        "completed": true,
+        "notes": "Plus tax",
+        "paid": {
+          "Evan": true,
+          "Ishan": true
+        }
+      }
+    ],
+    "split": {
+      "mode": "percentage",
+      "values": {
+        "Evan": 50,
+        "Ishan": 50
+      }
+    }
+  },
+  {
     "id": "project-1788873686072",
     "name": "table acc deleted alr paid and matched",
     "category": "Furniture",
