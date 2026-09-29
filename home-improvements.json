@@ -274,11 +274,11 @@
         "name": "Cleaners",
         "cost": 289,
         "link": "",
-        "completed": false,
+        "completed": true,
         "notes": "3-5 hours",
         "paid": {
           "Evan": true,
-          "Ishan": false
+          "Ishan": true
         }
       }
     ]
