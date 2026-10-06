@@ -3,13 +3,27 @@
     "id": "1791136169169",
     "name": "Simple no wine risotto",
     "category": "sides",
-    "time": "45 min",
-    "description": "https://www.aheadofthyme.com/2016/08/creamy-parmesan-risotto-with-seared-scallops/",
+    "time": "35 min",
+    "description": "2 Servings, add water when reheating.",
     "ingredients": [
-      "Pass"
+      "1 Tbsp butter",
+      "1/2 large onion diced",
+      "1 clove garlic minced",
+      "1 cup arborio/risotto rice (short grain rice)",
+      "4.5 cups chicken stock",
+      "3 tsp lemon juice",
+      "1/2 cup water",
+      "salt + pepper",
+      "1/3 cup grated Parmesan",
+      "2 Tbsp parsley finely chopped"
     ],
     "steps": [
-      "Pass"
+      "In a large skillet, melt butter over medium-high heat. Sauté the onion and garlic until soft and translucent, about 4 minutes.",
+      "Add rice and mix well until it is fully coated with the butter. The rice will look shiny once coated.",
+      "Pour in ½ cup of the chicken stock with the lemon juice and stir to combine. Once the rice has absorbed all the liquid, bring down the heat to medium low",
+      "Add one cup of chicken stock and continuously stir until the liquid is absorbed, about 5 minutes. Repeat, one cup at a time, with the remaining stock. This will take about 20-25 minutes until done.",
+      "Stir in ½ cup water. Once the risotto reaches your desired consistency, remove the pan off of the heat",
+      "Add in Parmesan cheese and parsley and stir to combine. Add salt and pepper to taste. Garnish with extra chopped parsley on top, if desired, and serve warm"
     ],
     "favorite": false
   },
