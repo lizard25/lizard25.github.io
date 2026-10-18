@@ -1,5 +1,19 @@
 [
   {
+    "id": "1792338472018",
+    "name": "Cheeseburger sliders",
+    "category": "dinner",
+    "time": "50min",
+    "description": "https://www.thekitchn.com/cheeseburger-sliders-recipe-23626544",
+    "ingredients": [
+      "https://www.thekitchn.com/cheeseburger-sliders-recipe-23626544"
+    ],
+    "steps": [
+      "https://www.thekitchn.com/cheeseburger-sliders-recipe-23626544"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1791136169169",
     "name": "Simple no wine risotto",
     "category": "sides",
