@@ -1,5 +1,25 @@
 [
   {
+    "id": "1794939423971",
+    "name": "Honey mustard chicken marinade",
+    "category": "dinner",
+    "time": "5 min",
+    "description": "",
+    "ingredients": [
+      "1 pound chicken breast or chicken thighs",
+      "3 tablespoons honey",
+      "3 tablespoons dijon mustard",
+      "2 tablespoons olive oil",
+      "1 garlic clove, finely minced or grated",
+      "Freshly ground salt and black pepper"
+    ],
+    "steps": [
+      "just mix it together and put the chicken in it.",
+      "1-6 hours"
+    ],
+    "favorite": false
+  },
+  {
     "id": "1791136169169",
     "name": "Simple no wine risotto",
     "category": "sides",
